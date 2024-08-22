@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>16.5. သင်ခန်းစာ - ဂျီဩမေတြီ တည်ဆောက်ခြင်း (Lesson: Geometry Construction) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/spatial_databases/geometry.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)" href="../processing/index.html" />
+    <link rel="prev" title="16.4. သင်ခန်းစာ - Spatial Query များ (Lesson: Spatial Queries)" href="spatial_queries.html" />
+  <meta name="description" content="QGIS testing documentation: 16.5. သင်ခန်းစာ - ဂျီဩမေတြီ တည်ဆောက်ခြင်း (Lesson: Geometry Construction)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="spatial_functions.html">16.1. သင်ခန်းစာ - PostGIS Setup လုပ်ခြင်း (Lesson: PostGIS Setup)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple_feature_model.html">16.2. သင်ခန်းစာ - ရိုးရှင်းသော Feature Model (Lesson: Simple Feature Model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import_export.html">16.3. သင်ခန်းစာ - ထည့်သွင်းခြင်းနှင့် ထုတ်ယူခြင်း (Lesson: Import and Export)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatial_queries.html">16.4. သင်ခန်းစာ - Spatial Query များ (Lesson: Spatial Queries)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">16.5. သင်ခန်းစာ - ဂျီဩမေတြီ တည်ဆောက်ခြင်း (Lesson: Geometry Construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linestrings-creating-linestrings">16.5.1. Linestrings ဖန်တီးခြင်း (Creating Linestrings)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself">16.5.2. မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) <abbr title="Moderate level">★★☆</abbr></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polygon-creating-polygons">16.5.3. Polygon များဖန်တီးခြင်း (Creating Polygons)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cities-people-exercise-linking-cities-to-people">16.5.4. လေ့ကျင့်ခန်း - Cities နှင့် People ကိုချိတ်ဆက်ခြင်း (Exercise: Linking Cities to People)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schema-looking-at-our-schema">16.5.5. Schema ကို ကြည့်ခြင်း (Looking at Our Schema)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">16.5.6. မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) <abbr title="Advanced level">★★★</abbr></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object-access-sub-objects">16.5.7. Object အခွဲများကို ရယူသုံးစွဲခြင်း (Access Sub-Objects)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-processing">16.5.8. Data Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clipping">16.5.9. ဖြတ်တောက်ခြင်း (Clipping)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-geometries-from-other-geometries">16.5.10. အခြား ဂျီဩမေတြီများကိုအသုံးပြုပြီး ဂျီဩမေတြီများတည်ဆောက်ခြင်း (Building Geometries from Other Geometries)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geometry-cleaning">16.5.11. ဂျီဩမေတြီ သန့်ခြင်း (Geometry Cleaning)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#table-differences-between-tables">16.5.12. Table များအကြား ကွာခြားချက် (Differences between tables)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tablespaces">16.5.13. Tablespaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">16.5.14. နိဂုံးချုပ် (In Conclusion)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">16. </span>မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">16.5. </span>သင်ခန်းစာ - ဂျီဩမေတြီ တည်ဆောက်ခြင်း (Lesson: Geometry Construction)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/spatial_databases/geometry.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="spatial_queries.html" class="btn btn-neutral float-left" title="16.4. သင်ခန်းစာ - Spatial Query များ (Lesson: Spatial Queries)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../processing/index.html" class="btn btn-neutral float-right" title="17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-geometry-construction">
+<h1><span class="section-number">16.5. </span>သင်ခန်းစာ - ဂျီဩမေတြီ တည်ဆောက်ခြင်း (Lesson: Geometry Construction)<a class="headerlink" href="#lesson-geometry-construction" title="Link to this heading"></a></h1>
+<p>ရိုးရှင်းသောဂျီဩမေတြီများကို SQL ထဲတွင် မည်သို့တည်ဆောက်ရမည်ကို ဤအပိုင်းတွင် ထဲထဲဝင်ဝင်လေ့လာသွားမည်ဖြစ်ပါသည်။ လက်တွေ့တွင် ရှုပ်ထွေးသောဂျီဩမေတြီများကို ဖန်တီးရန် QGIS ကဲ့သို့သော GIS software တစ်ခုကိုအသုံးပြုကောင်းပြုပါလိမ့်မည်- သို့ရာတွင် ဂျီဩမေတြီများ၏ တည်ဆောက်ပုံကိုနားလည်ခြင်းနှင့် database ၏ဖွဲ့စည်းပုံကိုနားလည်ခြင်းသည် query များရေးသားရာ၌ အသုံးဝင်စေနိုင်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> Spatial entity များကို PostgreSQL/PostGIS ထဲတွင် တိုက်ရိုက်ဖန်တီးနည်းကို ပိုမိုနားလည်စေရန်။</p>
+<section id="linestrings-creating-linestrings">
+<h2><span class="section-number">16.5.1. </span>Linestrings ဖန်တီးခြင်း (Creating Linestrings)<a class="headerlink" href="#linestrings-creating-linestrings" title="Link to this heading"></a></h2>
+<p><kbd class="kbd docutils literal notranslate">address</kbd> database ကိုပြန်သွားပြီး streets table ကို အခြားအရာများနှင့်ကိုက်ညီအောင် လုပ်ကြည့်ပါမည်- ဆိုလိုသည်မှာ ဂျီဩမေတြီတွင် constraint တစ်ခုရှိပြီး geometry_columns table ထဲတွင် index တစ်ခုနှင့် entry တစ်ခုရှိခြင်းဖြစ်ပါသည်။</p>
+</section>
+<section id="try-yourself">
+<h2><span class="section-number">16.5.2. </span>မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) <abbr title="Moderate level">★★☆</abbr><a class="headerlink" href="#try-yourself" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><kbd class="kbd docutils literal notranslate">streets</kbd> table တွင် ST_LineString အမျိုးအစား ဂျီဩမေတြီ column တစ်ခုပါရှိအောင် မွမ်းမံပြင်ဆင်ပါ။</p></li>
+<li><p>ဂျီဩမေတြီ columns table တွင် ပူးတွဲ update လုပ်ပေးရန် မမေ့ပါနှင့်။</p></li>
+<li><p>LINESTRING မဟုတ်သော သို့မဟုတ် null ဖြစ်နေသော ဂျီဩမေတြီများကို ထည့်သွင်းခြင်းမပြုရန် constraint တစ်ခုကိုလည်း ထည့်သွင်းပါ။</p></li>
+<li><p>ဂျီဩမေတြီ column အသစ်တွင် spatial index တစ်ခုဖန်တီးပါ</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alter</span> <span class="n">table</span> <span class="n">streets</span> <span class="n">add</span> <span class="n">column</span> <span class="n">the_geom</span> <span class="n">geometry</span><span class="p">;</span>
+<span class="n">alter</span> <span class="n">table</span> <span class="n">streets</span> <span class="n">add</span> <span class="n">constraint</span> <span class="n">streets_geom_point_chk</span> <span class="n">check</span>
+     <span class="p">(</span><span class="n">st_geometrytype</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;ST_LineString&#39;</span><span class="p">::</span><span class="n">text</span> <span class="n">OR</span> <span class="n">the_geom</span> <span class="n">IS</span> <span class="n">NULL</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">geometry_columns</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;public&#39;</span><span class="p">,</span><span class="s1">&#39;streets&#39;</span><span class="p">,</span><span class="s1">&#39;the_geom&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4326</span><span class="p">,</span>
+     <span class="s1">&#39;LINESTRING&#39;</span><span class="p">);</span>
+<span class="n">create</span> <span class="n">index</span> <span class="n">streets_geo_idx</span>
+  <span class="n">on</span> <span class="n">streets</span>
+  <span class="n">using</span> <span class="n">gist</span>
+  <span class="p">(</span><span class="n">the_geom</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>ယခုအခါ streets table ထဲသို့ linestring တစ်ခုကို ထည့်သွင်းကြည့်ပါမည်။ ဤဥပမာတွင် ရှိနေပြီးသား street record တစ်ခုကို update လုပ်မည်ဖြစ်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">update</span><span class="w"> </span><span class="n">streets</span>
+<span class="k">set</span><span class="w"> </span><span class="n">the_geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SRID=4326;LINESTRING(20 -33, 21 -34, 24 -33)&#39;</span>
+<span class="k">where</span><span class="w"> </span><span class="n">streets</span><span class="p">.</span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>QGIS ထဲတွင် ရလာဒ်များကို ကြည့်ပါ။ (‘Layers’ panel ထဲရှိ streets layer ပေါ်တွင် right-click နှိပ်ပြီး ‘Zoom to layer extent’ ကိုနှိပ်ရန် လိုအပ်ကောင်းလိုအပ်နိုင်ပါသည်။)</p>
+<p>ယခုအခါ နောက်ထပ် streets entry များကိုဖန်တီးပါမည် - အချို့ကို QGIS ထဲတွင် ဖန်တီးပြီး အချို့ကို command line မှ ဖန်တီးမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="polygon-creating-polygons">
+<h2><span class="section-number">16.5.3. </span>Polygon များဖန်တီးခြင်း (Creating Polygons)<a class="headerlink" href="#polygon-creating-polygons" title="Link to this heading"></a></h2>
+<p>Polygon များဖန်တီးခြင်းသည် လွယ်ကူပါသည်။ အဓိပ္ပါယ်သတ်မှတ်ချက်အရ Polygon များတွင် အနည်းဆုံး vertex (မျဉ်းအဆစ်) ၄ ခုပါရှိရမည်ဖြစ်ပြီး ပထမဦးဆုံးနှင့် နောက်ဆုံး vertex သည် တစ်နေရာထဲတွင် ရှိနေရမည်ဖြစ်သည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">cities</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">the_geom</span><span class="p">)</span>
+<span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SRID=4326;POLYGON((10 -10, 5 -32, 30 -27, 10 -10))&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Polygon တစ်ခုတွင် ၎င်း၏ကိုဩဒိနိတ် list ကို ကွင်း ( ) နှစ်ခုဖြင့် ရေးသားရန်လိုအပ်ပါသည်၊ ထိုမှသာ ချိတ်ဆက်မှုမရှိသောဧရိယာ များစွာပါဝင်သည့် ရှုပ်ထွေးသော Polygon များကို ထည့်သွင်းနိုင်စေမည်ဖြစ်သည်။ ဥပမာအားဖြင့်-</p>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">cities</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">the_geom</span><span class="p">)</span>
+<span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Tokyo Outer Wards&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;SRID=4326;POLYGON((20 10, 20 20, 35 20, 20 10),</span>
+<span class="s1">                           (-10 -30, -5 0, -15 -15, -10 -30))&#39;</span>
+<span class="w">        </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>ဤဥပမာအဆင့်အတိုင်း လုပ်ဆောင်ခဲ့ပါက cities dataset ကို QGIS ထဲသို့ ထည့်သွင်းပြီး attribute table ကိုဖွင့်ကာ အသစ်ထည့်သွင်းထားသော entry ကို select လုပ်ခြင်းအားဖြင့် စစ်ဆေးကြည့်နိုင်ပါသည်။ Polygon အသစ်နှစ်ခုသည် polygon တစ်ခုတည်းကဲ့သို့ လုပ်ဆောင်သည်ကို တွေ့ရပါမည်။</p>
+</section>
+<section id="cities-people-exercise-linking-cities-to-people">
+<h2><span class="section-number">16.5.4. </span>လေ့ကျင့်ခန်း - Cities နှင့် People ကိုချိတ်ဆက်ခြင်း (Exercise: Linking Cities to People)<a class="headerlink" href="#cities-people-exercise-linking-cities-to-people" title="Link to this heading"></a></h2>
+<p>ဤလေ့ကျင့်ခန်းအတွက် အောက်ပါတို့ကို လုပ်ဆောင်သင့်ပါသည်-</p>
+<ul class="simple">
+<li><p>People table မှ data များအားလုံးကို ဖျက်ပစ်ပါ။</p></li>
+<li><p>Cities table ၏ primary key နှင့် ချိတ်ဆက်မည့် foreign key column တစ်ခုကို People table တွင် ထည့်သွင်းပါ။</p></li>
+<li><p>အချို့ cities များကို ရယူရန် QGIS ကိုအသုံးပြုပါ။</p></li>
+<li><p>People record အသစ်များကို ထည့်သွင်းရန် SQL ကိုအသုံးပြုပါ၊ record တစ်ခုချင်းစီတွင် သက်ဆိုင်ရာ street နှင့် city တစ်ခုစီပါရှိအောင် ထည့်သွင်းပါ။</p></li>
+</ul>
+<p>Update ပြုလုပ်ထားသော People schema သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\d people
+
+Table &quot;public.people&quot;
+   Column   |         Type          |                      Modifiers
+ -----------+-----------------------+--------------------------------------------
+  id        | integer               | not null
+            |                       | default nextval(&#39;people_id_seq&#39;::regclass)
+  name      | character varying(50) |
+  house_no  | integer               | not null
+  street_id | integer               | not null
+  phone_no  | character varying     |
+  the_geom  | geometry              |
+  city_id   | integer               | not null
+Indexes:
+  &quot;people_pkey&quot; PRIMARY KEY, btree (id)
+  &quot;people_name_idx&quot; btree (name)
+Check constraints:
+  &quot;people_geom_point_chk&quot; CHECK (st_geometrytype(the_geom) =
+                       &#39;ST_Point&#39;::text OR the_geom IS NULL)
+Foreign-key constraints:
+  &quot;people_city_id_fkey&quot; FOREIGN KEY (city_id) REFERENCES cities(id)
+  &quot;people_street_id_fkey&quot; FOREIGN KEY (street_id) REFERENCES streets(id)
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delete</span> <span class="kn">from</span> <span class="nn">people</span><span class="p">;</span>
+<span class="n">alter</span> <span class="n">table</span> <span class="n">people</span> <span class="n">add</span> <span class="n">column</span> <span class="n">city_id</span> <span class="nb">int</span> <span class="ow">not</span> <span class="n">null</span> <span class="n">references</span> <span class="n">cities</span><span class="p">(</span><span class="nb">id</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>(QGIS ထဲတွင် cities များရယူခြင်း)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">insert</span> <span class="n">into</span> <span class="n">people</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">house_no</span><span class="p">,</span> <span class="n">street_id</span><span class="p">,</span> <span class="n">phone_no</span><span class="p">,</span> <span class="n">city_id</span><span class="p">,</span> <span class="n">the_geom</span><span class="p">)</span>
+   <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;Faulty Towers&#39;</span><span class="p">,</span>
+           <span class="mi">34</span><span class="p">,</span>
+           <span class="mi">3</span><span class="p">,</span>
+           <span class="s1">&#39;072 812 31 28&#39;</span><span class="p">,</span>
+           <span class="mi">1</span><span class="p">,</span>
+           <span class="s1">&#39;SRID=4326;POINT(33 33)&#39;</span><span class="p">);</span>
+
+<span class="n">insert</span> <span class="n">into</span> <span class="n">people</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">house_no</span><span class="p">,</span> <span class="n">street_id</span><span class="p">,</span> <span class="n">phone_no</span><span class="p">,</span> <span class="n">city_id</span><span class="p">,</span> <span class="n">the_geom</span><span class="p">)</span>
+   <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;IP Knightly&#39;</span><span class="p">,</span>
+           <span class="mi">32</span><span class="p">,</span>
+           <span class="mi">1</span><span class="p">,</span>
+           <span class="s1">&#39;071 812 31 28&#39;</span><span class="p">,</span>
+           <span class="mi">1</span><span class="p">,</span><span class="n">F</span>
+           <span class="s1">&#39;SRID=4326;POINT(32 -34)&#39;</span><span class="p">);</span>
+
+<span class="n">insert</span> <span class="n">into</span> <span class="n">people</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">house_no</span><span class="p">,</span> <span class="n">street_id</span><span class="p">,</span> <span class="n">phone_no</span><span class="p">,</span> <span class="n">city_id</span><span class="p">,</span> <span class="n">the_geom</span><span class="p">)</span>
+   <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;Rusty Bedsprings&#39;</span><span class="p">,</span>
+           <span class="mi">39</span><span class="p">,</span>
+           <span class="mi">1</span><span class="p">,</span>
+           <span class="s1">&#39;071 822 31 28&#39;</span><span class="p">,</span>
+           <span class="mi">1</span><span class="p">,</span>
+           <span class="s1">&#39;SRID=4326;POINT(34 -34)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>အောက်ပါ error message ကိုရရှိပါက-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ERROR</span><span class="p">:</span>  <span class="n">insert</span> <span class="ow">or</span> <span class="n">update</span> <span class="n">on</span> <span class="n">table</span> <span class="s2">&quot;people&quot;</span> <span class="n">violates</span> <span class="n">foreign</span> <span class="n">key</span> <span class="n">constraint</span>
+        <span class="s2">&quot;people_city_id_fkey&quot;</span>
+<span class="n">DETAIL</span><span class="p">:</span> <span class="n">Key</span> <span class="p">(</span><span class="n">city_id</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">table</span> <span class="s2">&quot;cities&quot;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>၎င်း error message ၏ဆိုလိုရင်းမှာ cities table အတွက် polygon များဖန်တီးစဉ်တွင် polygon အချို့ကို ဖျက်ပစ်ရမည်ဖြစ်ပြီး ပြန်လည်စတင်ရမည်ဟု ဆိုလိုပါသည်။ Cities table ထဲရှိ entry များကို စစ်ဆေးပြီး ရှိနေပြီးသား  <span class="guilabel">id</span> တစ်ခုခုကို အသုံးပြုပါ။</p>
+</div>
+</section>
+<section id="schema-looking-at-our-schema">
+<h2><span class="section-number">16.5.5. </span>Schema ကို ကြည့်ခြင်း (Looking at Our Schema)<a class="headerlink" href="#schema-looking-at-our-schema" title="Link to this heading"></a></h2>
+<p>ယခုအခါ schema သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/final_schema.png" src="../../../_images/final_schema.png" />
+</figure>
+</section>
+<section id="id1">
+<h2><span class="section-number">16.5.6. </span>မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) <abbr title="Advanced level">★★★</abbr><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>City တစ်ခုအတွက် address များအားလုံး၏ minimum convex hull ကိုတွက်ချက်ပြီး အဆိုပါဧရိယာပတ်လည်တွင် buffer တစ်ခုတွက်ချက်ခြင်းအားဖြင့် city နယ်နိမိတ်များကို ဖန်တီးပါ။</p>
+</section>
+<section id="object-access-sub-objects">
+<h2><span class="section-number">16.5.7. </span>Object အခွဲများကို ရယူသုံးစွဲခြင်း (Access Sub-Objects)<a class="headerlink" href="#object-access-sub-objects" title="Link to this heading"></a></h2>
+<p>SFS-Model function များတွင် SFS ဂျီဩမေတြီများ၏ object အခွဲများကို ရယူသုံးစွဲရန် option မျိုးစုံရှိပါသည်။ myPolygonTable ထဲရှိ polygon ဂျီဩမေတြီအတိုင်း၏ ပထမဆုံး vertex point ကို select ပြုလုပ်လိုပါက အောက်ပါနည်းအတိုင်း လုပ်ဆောင်ရပါမည်-</p>
+<ul>
+<li><p>Polygon နယ်နိမိတ်ကို linestring တစ်ခုအဖြစ်သို့ ပြောင်းလဲပါ-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">st_boundary</span><span class="p">(</span><span class="n">geometry</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">myPolygonTable</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>ရရှိလာသော linestring ၏ ပထမဆုံး vertex point ကို select လုပ်ပါ-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">st_startpoint</span><span class="p">(</span><span class="n">myGeometry</span><span class="p">)</span>
+<span class="k">from</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="n">st_boundary</span><span class="p">(</span><span class="n">geometry</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">myGeometry</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">myPolygonTable</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="data-processing">
+<h2><span class="section-number">16.5.8. </span>Data Processing<a class="headerlink" href="#data-processing" title="Link to this heading"></a></h2>
+<p>PostGIS သည် OGC SFS/MM စံနှုန်းနှင့်ကိုက်ညီသော function များအားလုံးကို ပံ့ပိုးပေးထားပါသည်။ အဆိုပါ function များအားလုံးသည် <code class="docutils literal notranslate"><span class="pre">ST_</span></code> ဟူသောစာလုံးဖြင့် စတင်ပါသည်။</p>
+</section>
+<section id="clipping">
+<h2><span class="section-number">16.5.9. </span>ဖြတ်တောက်ခြင်း (Clipping)<a class="headerlink" href="#clipping" title="Link to this heading"></a></h2>
+<p>Data ၏ အပိုင်းခွဲတစ်ခုကို clip ပြုလုပ်ရန် <code class="docutils literal notranslate"><span class="pre">ST_INTERSECT()</span></code> function ကိုအသုံးပြုနိုင်ပါသည်။ ဗလာဖြစ်နေသော ဂျီဩမေတြီများ မဖြစ်စေရန် အောက်ပါကို အသုံးပြုပါ-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">where</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">st_isempty</span><span class="p">(</span><span class="n">st_intersection</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">the_geom</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">the_geom</span><span class="p">))</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<img alt="../../../_images/qgis_001.png" src="../../../_images/qgis_001.png" />
+</figure>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">st_intersection</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">the_geom</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">the_geom</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">clip</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">road_lines</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">b</span>
+<span class="k">where</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">st_isempty</span><span class="p">(</span><span class="n">st_intersection</span><span class="p">(</span><span class="n">st_setsrid</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">the_geom</span><span class="p">,</span><span class="mi">32734</span><span class="p">),</span>
+<span class="w">  </span><span class="n">b</span><span class="p">.</span><span class="n">the_geom</span><span class="p">));</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<img alt="../../../_images/qgis_002.png" src="../../../_images/qgis_002.png" />
+</figure>
+</section>
+<section id="building-geometries-from-other-geometries">
+<h2><span class="section-number">16.5.10. </span>အခြား ဂျီဩမေတြီများကိုအသုံးပြုပြီး ဂျီဩမေတြီများတည်ဆောက်ခြင်း (Building Geometries from Other Geometries)<a class="headerlink" href="#building-geometries-from-other-geometries" title="Link to this heading"></a></h2>
+<p>Point table တစ်ခုမှ linestring တစ်ခုထုတ်ယူလိုပါသည်။ Point များ၏ order ကို <kbd class="kbd docutils literal notranslate">id</kbd> ဖြင့်သတ်မှတ်ထားပါသည်။ အခြား order စဉ်သည့်နည်းလမ်းသည် GPS ဖြင့် waypoint များကို ရယူသည့် timestamp (အချိန်) ဖြင့် စီခြင်းဖြစ်သည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/qgis_006.png" src="../../../_images/qgis_006.png" />
+</figure>
+<p>‘points’ ဟုခေါ်သော point layer အသစ်တစ်ခုမှ linestring တစ်ခုကို ဖန်တီးရန် အောက်ပါ command ကို run နိုင်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">ST_LineFromMultiPoint</span><span class="p">(</span><span class="n">st_collect</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)),</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id</span>
+<span class="k">from</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="n">the_geom</span>
+<span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">points</span>
+<span class="w">  </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">id</span>
+<span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Layer အသစ်တစ်ခုမဖန်တီးပဲ ၎င်း၏အလုပ်လုပ်ပုံကို ကြည့်ရှုရန် ‘people’ layer ပေါ်တွင်လည်း ထို command ကို run ကြည့်နိုင်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/qgis_007.png" src="../../../_images/qgis_007.png" />
+</figure>
+</section>
+<section id="geometry-cleaning">
+<h2><span class="section-number">16.5.11. </span>ဂျီဩမေတြီ သန့်ခြင်း (Geometry Cleaning)<a class="headerlink" href="#geometry-cleaning" title="Link to this heading"></a></h2>
+<p>ဤခေါင်းစဉ်အတွက် အချက်အလက်များကို <a class="reference external" href="https://gisforthought.com/projects/postgis_tutorial/validity.html">ဤ blog တွင်</a> ဖတ်ရှုနိုင်ပါသည်။</p>
+</section>
+<section id="table-differences-between-tables">
+<h2><span class="section-number">16.5.12. </span>Table များအကြား ကွာခြားချက် (Differences between tables)<a class="headerlink" href="#table-differences-between-tables" title="Link to this heading"></a></h2>
+<p>တည်ဆောက်ပုံတူညီသော table နှစ်ခုအကြား ကွာခြားချက်ကို သိရှိနိုင်စေရန် PostgreSQL keyword ဖြစ်သော <code class="docutils literal notranslate"><span class="pre">EXCEPT</span></code> ကိုအသုံးပြုနိုင်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">table_a</span>
+<span class="k">except</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">table_b</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>ရလာဒ်အနေဖြင့် table_b တွင်မသိမ်းဆည်းထားသော table_a မှ record များအားလုံးကို ရရှိမည်ဖြစ်သည်။</p>
+</section>
+<section id="tablespaces">
+<h2><span class="section-number">16.5.13. </span>Tablespaces<a class="headerlink" href="#tablespaces" title="Link to this heading"></a></h2>
+<p>Postgres သည် ၎င်း၏ data များကို ကွန်ပျူတာရှိ မည်သည့်နေရာတွင် သိမ်းဆည်းသင့်သည်ကို Tablespace များဖန်တီးခြင်းဖြင့် သတ်မှတ်ပေးနိုင်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="n">TABLESPACE</span><span class="w"> </span><span class="n">homespace</span><span class="w"> </span><span class="k">LOCATION</span><span class="w"> </span><span class="s1">&#39;/home/pg&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Database တစ်ခုကိုဖန်တီးသောအခါ အသုံးပြုမည့် tablespace ကို သတ်မှတ်ပေးနိုင်ပါသည်၊ ဥပမာ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">createdb</span> <span class="o">--</span><span class="n">tablespace</span><span class="o">=</span><span class="n">homespace</span> <span class="n">t4a</span>
+</pre></div>
+</div>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">16.5.14. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>PostGIS statement များကိုအသုံးပြုပြီး ပိုမိုရှုပ်ထွေးသော ဂျီဩမေတြီများကို မည်ကဲ့သို့ဖန်တီးရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။ GIS ကိုအသုံးပြုပြီး ပထဝီဝင်ဆိုင်ရာ database များဖြင့် အလုပ်လုပ်သောအခါ သင့်တွင်ရှိသော ဗဟုသုတကို တိုးတက်စေရန်ဖြစ်ပါသည်။ အဆိုပါ statement များကို အမြဲတမ်း လက်ဖြင့် ရိုက်ထည့်ရန်မလိုအပ်ပါ။ သို့သော် ၎င်းတို့၏တည်ဆောက်ပုံကို ယေဘုယျနားလည်ခြင်းသည် GIS အသုံးပြုသောအခါ၊ အထူးသဖြင့် error များကြုံတွေ့ရပါက အကူအညီဖြစ်စေပါသည်၊ ထိုသို့မဟုတ်ပါက error များကိုနားလည်ရခက်နေပေလိမ့်မည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spatial_queries.html" class="btn btn-neutral float-left" title="16.4. သင်ခန်းစာ - Spatial Query များ (Lesson: Spatial Queries)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../processing/index.html" class="btn btn-neutral float-right" title="17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/spatial_databases/geometry.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/spatial_databases/geometry.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/spatial_databases/geometry.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/spatial_databases/geometry.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/spatial_databases/geometry.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/spatial_databases/geometry.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/spatial_databases/geometry.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/spatial_databases/geometry.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/spatial_databases/geometry.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/spatial_databases/geometry.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/spatial_databases/geometry.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/2b385a1a3594b03332bfbc8c4fedda53" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

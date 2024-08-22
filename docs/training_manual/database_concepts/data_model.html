@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15.2. သင်ခန်းစာ - Data Model အကောင်အထည်ဖော်ခြင်း (Lesson: Implementing the Data Model) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/database_concepts/data_model.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="15.3. သင်ခန်းစာ - Model ထဲသို့ Data ထည့်သွင်းခြင်း (Lesson: Adding Data to the Model)" href="adding_data.html" />
+    <link rel="prev" title="15.1. သင်ခန်းစာ - Database မိတ်ဆက် (Lesson: Introduction to Databases)" href="db_intro.html" />
+  <meta name="description" content="QGIS testing documentation: 15.2. သင်ခန်းစာ - Data Model အကောင်အထည်ဖော်ခြင်း (Lesson: Implementing the Data Model)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="db_intro.html">15.1. သင်ခန်းစာ - Database မိတ်ဆက် (Lesson: Introduction to Databases)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">15.2. သင်ခန်းစာ - Data Model အကောင်အထည်ဖော်ခြင်း (Lesson: Implementing the Data Model)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#postgresql-install-install-postgresql">15.2.1. PostgreSQL Install လုပ်ခြင်း (Install PostgreSQL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#help">15.2.2. အကူအညီ (Help)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-user-create-a-database-user">15.2.3. Database user တစ်ခုဖန်တီးခြင်း (Create a database user)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verify-the-new-account">15.2.4. အကောင့်အသစ်ကို အတည်ပြုခြင်း (Verify the new account)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-create-a-database">15.2.5. Database တစ်ခုဖန်တီးခြင်း (Create a database)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-shell-session-starting-a-database-shell-session">15.2.6. Database shell session တစ်ခုစတင်ခြင်း (Starting a database shell session)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sql-make-tables-in-sql">15.2.7. SQL ထဲတွင် ဇယားများပြုလုပ်ခြင်း (Make Tables in SQL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sql-key-create-keys-in-sql">15.2.8. SQL ထဲတွင် Key များဖန်တီးခြင်း (Create Keys in SQL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sql-index-create-indexes-in-sql">15.2.9. SQL ထဲတွင် Index များဖန်တီးခြင်း (Create Indexes in SQL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sql-table-dropping-tables-in-sql">15.2.10. SQL ထဲတွင် Table များကို ဖြုတ်ချန်/ဖျက်ခြင်း (Dropping Tables in SQL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pgadmin-iii-a-word-on-pgadmin-iii">15.2.11. pgAdmin III အကြောင်း (A word on pgAdmin III)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">15.2.12. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">15.2.13. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="adding_data.html">15.3. သင်ခန်းစာ - Model ထဲသို့ Data ထည့်သွင်းခြင်း (Lesson: Adding Data to the Model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries.html">15.4. သင်ခန်းစာ - Query များ (Lesson: Queries)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html">15.5. သင်ခန်းစာ - View များ (Lesson: Views)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rules.html">15.6. သင်ခန်းစာ - စည်းမျဉ်းများ (Lesson: Rules)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">15. </span>မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">15.2. </span>သင်ခန်းစာ - Data Model အကောင်အထည်ဖော်ခြင်း (Lesson: Implementing the Data Model)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/database_concepts/data_model.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="db_intro.html" class="btn btn-neutral float-left" title="15.1. သင်ခန်းစာ - Database မိတ်ဆက် (Lesson: Introduction to Databases)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adding_data.html" class="btn btn-neutral float-right" title="15.3. သင်ခန်းစာ - Model ထဲသို့ Data ထည့်သွင်းခြင်း (Lesson: Adding Data to the Model)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="data-model-lesson-implementing-the-data-model">
+<h1><span class="section-number">15.2. </span>သင်ခန်းစာ - Data Model အကောင်အထည်ဖော်ခြင်း (Lesson: Implementing the Data Model)<a class="headerlink" href="#data-model-lesson-implementing-the-data-model" title="Link to this heading"></a></h1>
+<p>သီအိုရီအားလုံးကို လေ့လာပြီးဖြစ်ပါသည်၊ database အသစ်တစ်ခုကို ဖန်တီးကြည့်ပါမည်။ ဤ database ကို နောက်လာမည့် သင်ခန်းစာများအတွက် လေ့ကျင့်ခန်းများတွင် အသုံးပြုသွားမည်ဖြစ်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> လိုအပ်သော software install ပြုလုပ်ပြီး နမူနာ database စတင်ရာတွင် အသုံးပြုရန်။</p>
+<section id="postgresql-install-install-postgresql">
+<h2><span class="section-number">15.2.1. </span>PostgreSQL Install လုပ်ခြင်း (Install PostgreSQL)<a class="headerlink" href="#postgresql-install-install-postgresql" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>သင့် ကွန်ပျူတာအတွက် PostgreSQL package များနှင့် installation ညွှန်ကြားချက်များကို  <a class="reference external" href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a> တွင် တွေ့နိုင်ပါသည်။ သတိထားရမည်မှာ documentation သည် Ubuntu တွင် run နေသော QGIS အတွက်ဖြစ်ပါသည်။</p>
+</div>
+<p>Under Ubuntu:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>postgresql-9.1
+</pre></div>
+</div>
+<p>အောက်ပါအတိုင်း message ရရှိပါလိမ့်မည်-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>qgis:
+Reading<span class="w"> </span>package<span class="w"> </span>lists...<span class="w"> </span>Done
+Building<span class="w"> </span>dependency<span class="w"> </span>tree
+Reading<span class="w"> </span>state<span class="w"> </span>information...<span class="w"> </span>Done
+The<span class="w"> </span>following<span class="w"> </span>extra<span class="w"> </span>packages<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>installed:
+postgresql-client-9.1<span class="w"> </span>postgresql-client-common<span class="w"> </span>postgresql-common
+Suggested<span class="w"> </span>packages:
+oidentd<span class="w"> </span>ident-server<span class="w"> </span>postgresql-doc-9.1
+The<span class="w"> </span>following<span class="w"> </span>NEW<span class="w"> </span>packages<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>installed:
+postgresql-9.1<span class="w"> </span>postgresql-client-9.1<span class="w"> </span>postgresql-client-common<span class="w"> </span>postgresql-common
+<span class="m">0</span><span class="w"> </span>upgraded,<span class="w"> </span><span class="m">4</span><span class="w"> </span>newly<span class="w"> </span>installed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span>remove<span class="w"> </span>and<span class="w"> </span><span class="m">5</span><span class="w"> </span>not<span class="w"> </span>upgraded.
+Need<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span><span class="m">5</span>,012kB<span class="w"> </span>of<span class="w"> </span>archives.
+After<span class="w"> </span>this<span class="w"> </span>operation,<span class="w"> </span><span class="m">19</span>.0MB<span class="w"> </span>of<span class="w"> </span>additional<span class="w"> </span>disk<span class="w"> </span>space<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used.
+Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span>?
+</pre></div>
+</div>
+<p><kbd class="kbd docutils literal notranslate">Y</kbd> ကိုနှိပ်ပြီး <kbd class="kbd docutils literal notranslate">Enter</kbd> ကိုနှိပ်ပါ၊ ဒေါင်းလုဒ်နှင့် installation ပြီးဆုံးသည်အထိ စောင့်ပါ။</p>
+</section>
+<section id="help">
+<h2><span class="section-number">15.2.2. </span>အကူအညီ (Help)<a class="headerlink" href="#help" title="Link to this heading"></a></h2>
+<p>PostgreSQL တွင် အလွန်ကောင်းသော <a class="reference external" href="https://www.postgresql.org/docs/9.1/index.html">online</a> documentation ရှိပါသည်။</p>
+</section>
+<section id="database-user-create-a-database-user">
+<h2><span class="section-number">15.2.3. </span>Database user တစ်ခုဖန်တီးခြင်း (Create a database user)<a class="headerlink" href="#database-user-create-a-database-user" title="Link to this heading"></a></h2>
+<p>Under Ubuntu:</p>
+<p>Installation ပြီးဆုံးသွားသောအခါ postgres user ဖြစ်လာစေရန် အောက်ပါ command ကို run ပြီးနောက် database user အသစ်တစ်ခုဖန်တီးပါ-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>postgres
+</pre></div>
+</div>
+<p>မေးမြန်းလာပါက သာမန် log in password ရိုက်ထည့်ပါ (sudo right များရှိရန်လိုအပ်ပါသည်)။</p>
+<p>ယခုအခါ postgres user ၏ bash prompt တွင် database user ကိုဖန်တီးပါ။ User name သည် unix login name နှင့်ကိုက်ညီရပါမည်- အဆိုပါ user အနေဖြင့် login ဝင်သောအခါ postgres သည် အလိုအလျောက် authenticate လုပ်ပေးပါလိမ့်မည်-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>createuser<span class="w"> </span>-d<span class="w"> </span>-E<span class="w"> </span>-i<span class="w"> </span>-l<span class="w"> </span>-P<span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span>qgis
+</pre></div>
+</div>
+<p>မေးမြန်းလာပါက password ရိုက်ထည့်ပါ။ Login password နှင့်မတူသော password တစ်ခုကို အသုံးပြုသင့်ပါသည်။</p>
+<p>အဆိုပါ option များသည် ဘာကိုဆိုလိုပါသလဲ?</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-d,<span class="w"> </span>--createdb<span class="w">     </span>role<span class="w"> </span>can<span class="w"> </span>create<span class="w"> </span>new<span class="w"> </span>databases
+-E,<span class="w"> </span>--encrypted<span class="w">    </span>encrypt<span class="w"> </span>stored<span class="w"> </span>password
+-i,<span class="w"> </span>--inherit<span class="w">      </span>role<span class="w"> </span>inherits<span class="w"> </span>privileges<span class="w"> </span>of<span class="w"> </span>roles<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>member<span class="w"> </span>of<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>
+-l,<span class="w"> </span>--login<span class="w">        </span>role<span class="w"> </span>can<span class="w"> </span>login<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>
+-P,<span class="w"> </span>--pwprompt<span class="w">     </span>assign<span class="w"> </span>a<span class="w"> </span>password<span class="w"> </span>to<span class="w"> </span>new<span class="w"> </span>role
+-r,<span class="w"> </span>--createrole<span class="w">   </span>role<span class="w"> </span>can<span class="w"> </span>create<span class="w"> </span>new<span class="w"> </span>roles
+-s,<span class="w"> </span>--superuser<span class="w">    </span>role<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>superuser
+</pre></div>
+</div>
+<p>ယခုအခါ အောက်ပါကိုရိုက်ပြီး postgres user ၏ bash shell environment မှ ထွက်ပါ-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span>
+</pre></div>
+</div>
+</section>
+<section id="verify-the-new-account">
+<h2><span class="section-number">15.2.4. </span>အကောင့်အသစ်ကို အတည်ပြုခြင်း (Verify the new account)<a class="headerlink" href="#verify-the-new-account" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">psql</span> <span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+<p>အောက်ပါပုံစံအတိုင်း ပြန်ထုတ်ပေးပါလိမ့်မည်:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>      <span class="o">|</span>  <span class="n">Owner</span>   <span class="o">|</span> <span class="n">Encoding</span> <span class="o">|</span> <span class="n">Collation</span>  <span class="o">|</span>   <span class="n">Ctype</span>    <span class="o">|</span>
+<span class="o">----------+----------+----------+------------+------------+</span>
+<span class="n">postgres</span>  <span class="o">|</span> <span class="n">postgres</span> <span class="o">|</span> <span class="n">UTF8</span>     <span class="o">|</span> <span class="n">en_ZA</span><span class="o">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="n">en_ZA</span><span class="o">.</span><span class="n">utf8</span> <span class="o">|</span>
+<span class="n">template0</span> <span class="o">|</span> <span class="n">postgres</span> <span class="o">|</span> <span class="n">UTF8</span>     <span class="o">|</span> <span class="n">en_ZA</span><span class="o">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="n">en_ZA</span><span class="o">.</span><span class="n">utf8</span> <span class="o">|</span>
+<span class="n">template1</span> <span class="o">|</span> <span class="n">postgres</span> <span class="o">|</span> <span class="n">UTF8</span>     <span class="o">|</span> <span class="n">en_ZA</span><span class="o">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="n">en_ZA</span><span class="o">.</span><span class="n">utf8</span> <span class="o">|</span>
+<span class="p">(</span><span class="mi">3</span> <span class="n">rows</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ထွက်ရန် <kbd class="kbd docutils literal notranslate">Q</kbd> ဟုရိုက်ထည့်ပါ။</p>
+</section>
+<section id="database-create-a-database">
+<h2><span class="section-number">15.2.5. </span>Database တစ်ခုဖန်တီးခြင်း (Create a database)<a class="headerlink" href="#database-create-a-database" title="Link to this heading"></a></h2>
+<p>Database အသစ်တစ်ခုဖန်တီးရန်  <code class="docutils literal notranslate"><span class="pre">createdb</span></code> command ကိုအသုံးပြုပါသည်။ ၎င်းကို bash shell prompt မှ run သင့်ပါသည်-</p>
+<div class="highlight-psql notranslate"><div class="highlight"><pre><span></span><span class="n">createdb</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">-</span><span class="n">O</span><span class="w"> </span><span class="n">qgis</span>
+</pre></div>
+</div>
+<p>Database အသစ် ရှိမရှိကို အောက်ပါ command အသုံးပြုပြီး အတည်ပြုနိုင်ပါသည်-</p>
+<div class="highlight-psql notranslate"><div class="highlight"><pre><span></span><span class="n">psql</span><span class="w"> </span><span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+<p>အောက်ပါပုံစံအတိုင်း ပြန်ထုတ်ပေးပါလိမ့်မည်-</p>
+<div class="highlight-psql notranslate"><div class="highlight"><pre><span></span><span class="k">Name</span><span class="w">      </span><span class="o">|</span><span class="w">  </span><span class="k">Owner</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">Encoding</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Collation</span><span class="w">  </span><span class="o">|</span><span class="w">   </span><span class="n">Ctype</span><span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="k">Access</span><span class="w"> </span><span class="k">privileges</span>
+<span class="c1">----------+----------+----------+------------+------------+-----------------------</span>
+<span class="n">address</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">qgis</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">UTF8</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">en_ZA</span><span class="mf">.</span><span class="n">utf8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">en_ZA</span><span class="mf">.</span><span class="n">utf8</span><span class="w"> </span><span class="o">|</span>
+<span class="n">postgres</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">UTF8</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">en_ZA</span><span class="mf">.</span><span class="n">utf8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">en_ZA</span><span class="mf">.</span><span class="n">utf8</span><span class="w"> </span><span class="o">|</span>
+<span class="n">template0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">UTF8</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">en_ZA</span><span class="mf">.</span><span class="n">utf8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">en_ZA</span><span class="mf">.</span><span class="n">utf8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">=</span><span class="n">c</span><span class="o">/</span><span class="n">postgres</span><span class="p">:</span><span class="w"> </span><span class="n">postgres</span><span class="o">=</span><span class="n">CTc</span><span class="o">/</span><span class="n">postgres</span>
+<span class="n">template1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">UTF8</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">en_ZA</span><span class="mf">.</span><span class="n">utf8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">en_ZA</span><span class="mf">.</span><span class="n">utf8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">=</span><span class="n">c</span><span class="o">/</span><span class="n">postgres</span><span class="p">:</span><span class="w"> </span><span class="n">postgres</span><span class="o">=</span><span class="n">CTc</span><span class="o">/</span><span class="n">postgres</span>
+<span class="p">(</span><span class="mf">4</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ထွက်ရန် <kbd class="kbd docutils literal notranslate">Q</kbd> ဟုရိုက်ထည့်ပါ။</p>
+</section>
+<section id="database-shell-session-starting-a-database-shell-session">
+<h2><span class="section-number">15.2.6. </span>Database shell session တစ်ခုစတင်ခြင်း (Starting a database shell session)<a class="headerlink" href="#database-shell-session-starting-a-database-shell-session" title="Link to this heading"></a></h2>
+<p>အောက်ပါအတိုင်း database ကို အလွယ်တကူ ချိတ်ဆက်နိုင်ပါသည်:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">psql</span> <span class="n">address</span>
+</pre></div>
+</div>
+<p>psql database shell မှထွက်ရန် အောက်ပါကို ရိုက်ထည့်ပါ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">q</span>
+</pre></div>
+</div>
+<p>Shell အသုံးပြုရာတွင် အကူအညီရယူရန် အောက်ပါကို ရိုက်ထည့်ပါ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\?
+</pre></div>
+</div>
+<p>sql command များအသုံးပြုရာတွင် အကူအညီရယူရန် အောက်ပါကို ရိုက်ထည့်ပါ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">help</span>
+</pre></div>
+</div>
+<p>သီးသန့် commnad တစ်ခုနှင့်ပတ်သက်ပြီး အကူအညီရယူရန် အောက်ပါကို ရိုက်ထည့်ပါ (ဥပမာ):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">help</span> <span class="n">create</span> <span class="n">table</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://www.postgresonline.com/downloads/special_feature/postgresql90_cheatsheet_A4.pdf">Psql cheat sheet</a> တွင်လည်း ကြည့်ရှုပါ။</p>
+</section>
+<section id="sql-make-tables-in-sql">
+<h2><span class="section-number">15.2.7. </span>SQL ထဲတွင် ဇယားများပြုလုပ်ခြင်း (Make Tables in SQL)<a class="headerlink" href="#sql-make-tables-in-sql" title="Link to this heading"></a></h2>
+<p>Table အချို့ ပြုလုပ်ကြည့်ပါမည်။ ER Diagram ကို guide အနေဖြင့် အသုံးပြုပါမည်။ ဦးစွာ address db နှင့်ချိတ်ဆက်ပါ-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">psql</span><span class="w"> </span><span class="n">address</span>
+</pre></div>
+</div>
+<p>ထို့နောက် <code class="file docutils literal notranslate"><span class="pre">streets</span></code> table တစ်ခုကို ဖန်တီးပါ-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">streets</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">serial</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+</pre></div>
+</div>
+<p><kbd class="kbd docutils literal notranslate">serial</kbd> နှင့် <kbd class="kbd docutils literal notranslate">varchar</kbd> သည် <strong>data types</strong> များဖြစ်ကြပါသည်။ Record အသစ်တိုင်းအတွက် <kbd class="kbd docutils literal notranslate">id</kbd> အလိုအလျောက်ထုတ်ပေးရန် <kbd class="kbd docutils literal notranslate">serial</kbd> သည် PostgreSQL ကို integer sequence တစ်ခုအစပြုစေခြင်းဖြစ်ပါသည်။ <kbd class="kbd docutils literal notranslate">varchar(50)</kbd> သည် အလျား 50 character ရှိသော field တစ်ခုကို ဖန်တီးစေပါသည်။</p>
+<p>Command တွင် <kbd class="kbd docutils literal notranslate">;</kbd> ဖြင့်အဆုံးသတ်သည် ကို သတိထားမိပါလိမ့်မည်၊ SQL command အားလုံး ထိုအတိုင်းပင်ဖြစ်ပါသည်။ <kbd class="kbd docutils literal notranslate">Enter</kbd> နှိပ်သောအခါ psql သည် အောက်ပါအတိုင်း report လုပ်ပေးပါလိမ့်မည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">NOTICE</span><span class="p">:</span><span class="w">  </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">implicit</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="ss">&quot;streets_id_seq&quot;</span>
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="nb">serial</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="ss">&quot;streets.id&quot;</span>
+<span class="n">NOTICE</span><span class="p">:</span><span class="w">  </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">implicit</span><span class="w"> </span><span class="k">index</span>
+<span class="w">         </span><span class="ss">&quot;streets_pkey&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="ss">&quot;streets&quot;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span>
+</pre></div>
+</div>
+<p>ဆိုလိုသည်မှာ table ကို အောင်မြင်စွာ ဖန်တီးပြီးဖြစ်ကာ primary key <kbd class="kbd docutils literal notranslate">streets_pkey</kbd> နှင့် <kbd class="kbd docutils literal notranslate">streets.id</kbd> ကိုအသုံးပြုထားပါသည်။</p>
+<p>မှတ်ချက်- <kbd class="kbd docutils literal notranslate">;</kbd> မပါရှိပဲ Enter နှိပ်လျှင် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">address</kbd>-<kbd class="kbd docutils literal notranslate">#</kbd></kbd> ကဲ့သို့ prompt တစ်ခုရရှိပါလိမ့်မည်။ အဘယ့်ကြောင့်ဆိုသော PG သည် ထပ်မံရိုက်ထည့်စေလိုသောကြောင့်ဖြစ်သည်။ Commnad ကို run ရန် <kbd class="kbd docutils literal notranslate">;</kbd> ကိုထည့်ပါ။</p>
+<p>Table schema ကိုကြည့်ရှုရန် အောက်ပါအတိုင်း လုပ်နိုင်ပါသည်-</p>
+<div class="highlight-psql notranslate"><div class="highlight"><pre><span></span><span class="kp">\d</span><span class="w"> </span><span class="ss">streets</span>
+</pre></div>
+</div>
+<p>အောက်ပါပုံစံအတိုင်း ပြသသင့်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Table</span><span class="w"> </span><span class="ss">&quot;public.streets&quot;</span>
+<span class="k">Column</span><span class="w">  </span><span class="o">|</span><span class="w">         </span><span class="k">Type</span><span class="w">          </span><span class="o">|</span><span class="w">            </span><span class="n">Modifiers</span>
+<span class="c1">--------+-----------------------+--------------------------------------</span>
+<span class="w"> </span><span class="n">id</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span>
+<span class="w">        </span><span class="o">|</span><span class="w">                       </span><span class="o">|</span><span class="w"> </span><span class="n">nextval</span><span class="p">(</span><span class="s1">&#39;streets_id_seq&#39;</span><span class="p">::</span><span class="n">regclass</span><span class="p">)</span>
+<span class="w"> </span><span class="n">name</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="n">Indexes</span><span class="p">:</span>
+<span class="w">  </span><span class="ss">&quot;streets_pkey&quot;</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Table အကြောင်းအရာများကို ကြည့်ရှုရန် အောက်ပါအတိုင်း လုပ်နိုင်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">streets</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>အောက်ပါပုံစံအတိုင်း ပြသသင့်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">name</span>
+<span class="c1">---+------</span>
+<span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>သင်မြင်တွေ့ရသည့်အတိုင်း Table သည် လက်ရှိတွင် ဗလာ ဖြစ်နေပါသည်။</p>
+<section id="try-yourself">
+<h3>မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) <abbr title="Moderate level">★★☆</abbr><a class="headerlink" href="#try-yourself" title="Link to this heading"></a></h3>
+<p>အထက်တွင်ဖော်ပြခဲ့သောနည်းအတိုင်း people ဟုခေါ်သော table တစ်ခုပြုလုပ်ပါ-</p>
+<p>Phone number ၊ home address ၊ name ၊ အစရှိသည့် field များကို ထည့်သွင်းပါ (နာမည်များဆီလျော်မှုမရှိပါက ဆီလျော်မှုရှိသော နာမည်များ ပြောင်းလဲပါ)။ အထက်တွင်ဖော်ပြခဲ့သည့်အတိုင်း data-type တူညီသော ID column တစ်ခု table တွင် ထည့်သွင်းပါ။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>မှန်ကန်သော people table ကိုဖန်တီးရန် လိုအပ်သော SQL မှာ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="n">table</span> <span class="n">people</span> <span class="p">(</span><span class="nb">id</span> <span class="n">serial</span> <span class="ow">not</span> <span class="n">null</span> <span class="n">primary</span> <span class="n">key</span><span class="p">,</span>
+                     <span class="n">name</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+                     <span class="n">house_no</span> <span class="nb">int</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span>
+                     <span class="n">street_id</span> <span class="nb">int</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span>
+                     <span class="n">phone_no</span> <span class="n">varchar</span> <span class="n">null</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>Table အတွက် schema သည် (<code class="docutils literal notranslate"><span class="pre">\\d</span> <span class="pre">people</span></code> ဟုရိုက်ထည့်ပါ) အောက်ပါအတိုင်းဖြစ်ပါမည်:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span> <span class="s2">&quot;public.people&quot;</span>
+
+<span class="n">Column</span>     <span class="o">|</span>         <span class="n">Type</span>          <span class="o">|</span>                      <span class="n">Modifiers</span>
+<span class="o">-----------+-----------------------+-------------------------------------</span>
+<span class="nb">id</span>         <span class="o">|</span> <span class="n">integer</span>               <span class="o">|</span> <span class="ow">not</span> <span class="n">null</span> <span class="n">default</span>
+           <span class="o">|</span>                       <span class="o">|</span> <span class="n">nextval</span><span class="p">(</span><span class="s1">&#39;people_id_seq&#39;</span><span class="p">::</span><span class="n">regclass</span><span class="p">)</span>
+<span class="n">name</span>       <span class="o">|</span> <span class="n">character</span> <span class="n">varying</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">|</span>
+<span class="n">house_no</span>   <span class="o">|</span> <span class="n">integer</span>               <span class="o">|</span> <span class="ow">not</span> <span class="n">null</span>
+<span class="n">street_id</span>  <span class="o">|</span> <span class="n">integer</span>               <span class="o">|</span> <span class="ow">not</span> <span class="n">null</span>
+<span class="n">phone_no</span>   <span class="o">|</span> <span class="n">character</span> <span class="n">varying</span>     <span class="o">|</span>
+<span class="n">Indexes</span><span class="p">:</span>
+  <span class="s2">&quot;people_pkey&quot;</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span> <span class="n">btree</span> <span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ပုံဖော်ပြသခြင်းဖြစ်သည့်အတွက် fkey constraint ကို ရည်ရွယ်ချက်ရှိရှိ ချန်ထားပါသည်။</p>
+</div>
+</section>
+</section>
+<section id="sql-key-create-keys-in-sql">
+<h2><span class="section-number">15.2.8. </span>SQL ထဲတွင် Key များဖန်တီးခြင်း (Create Keys in SQL)<a class="headerlink" href="#sql-key-create-keys-in-sql" title="Link to this heading"></a></h2>
+<p>အထက်ပါကိစ္စအတွက် ပြဿနာမှာ database သည် people နှင့် streets တွင် logical relationship တစ်ခုရှိသည်ကို မသိရှိပါ။ ထို relationship ကို ဖော်ပြရန် streets table ၏ primary key ကို ညွှန်ပြသော foreign key တစ်ခုကို သတ်မှတ်ပေးရပါမည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/er-people-streets.png" src="../../../_images/er-people-streets.png" />
+</figure>
+<p>ထိုသို့လုပ်ဆောင်ရန် နည်းလမ်း ၂ ခုရှိပါသည်-</p>
+<ul class="simple">
+<li><p>Table ကိုဖန်တီးပြီးမှ key ထည့်သွင်းခြင်း</p></li>
+<li><p>Table ဖန်တီးချိန်တွင် key ကိုသတ်မှတ်ခြင်း</p></li>
+</ul>
+<p>Table သည် ဖန်တီးပြီးသားဖြစ်နေပါသည်၊ ထို့ကြောင့် ပထမနည်းလမ်းဖြင့် လုပ်ကြည့်ပါမည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">people</span>
+<span class="w">  </span><span class="k">add</span><span class="w"> </span><span class="k">constraint</span><span class="w"> </span><span class="n">people_streets_fk</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">street_id</span><span class="p">)</span><span class="w"> </span><span class="k">references</span><span class="w"> </span><span class="n">streets</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><kbd class="kbd docutils literal notranslate">people</kbd> table ၏ <kbd class="kbd docutils literal notranslate">street_id</kbd> field သည် <kbd class="kbd docutils literal notranslate">streets</kbd> table မှ ဆီလျော်မှုရှိသော street <kbd class="kbd docutils literal notranslate">id</kbd> နှင့် ကိုက်ညီမှုရှိရမည်ဖြစ်ကြောင်း ဆိုလိုခြင်းဖြစ်ပါသည်။</p>
+<p>Constraint တစ်ခုကိုဖန်တီးရန် ပုံမှန်နည်းလမ်းမှာ table ဖန်တီးသောအခါ ၎င်းကို ဖန်တီးရန်ဖြစ်သည်-</p>
+<div class="highlight-psql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">serial</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span>
+<span class="w">                     </span><span class="k">name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+<span class="w">                     </span><span class="n">house_no</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">street_id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">references</span><span class="w"> </span><span class="n">streets</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">phone_no</span><span class="w"> </span><span class="nb">varchar</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+
+<span class="go">\d people</span>
+</pre></div>
+</div>
+<p>Constraint ထည့်သွင်းပြီးသောအခါ table schema သည် အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါမည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Table</span><span class="w"> </span><span class="ss">&quot;public.people&quot;</span>
+
+<span class="w">  </span><span class="k">Column</span><span class="w">   </span><span class="o">|</span><span class="w">         </span><span class="k">Type</span><span class="w">          </span><span class="o">|</span><span class="w">            </span><span class="n">Modifiers</span>
+<span class="c1">-----------+-----------------------+---------------------------------</span>
+<span class="w"> </span><span class="n">id</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span>
+<span class="w">           </span><span class="o">|</span><span class="w">                       </span><span class="o">|</span><span class="w"> </span><span class="n">nextval</span><span class="p">(</span><span class="s1">&#39;people_id_seq&#39;</span><span class="p">::</span><span class="n">regclass</span><span class="p">)</span>
+<span class="w"> </span><span class="n">name</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="w"> </span><span class="n">house_no</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="w"> </span><span class="n">street_id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="w"> </span><span class="n">phone_no</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="w">     </span><span class="o">|</span>
+<span class="n">Indexes</span><span class="p">:</span>
+<span class="w">  </span><span class="ss">&quot;people_pkey&quot;</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="k">Foreign</span><span class="o">-</span><span class="k">key</span><span class="w"> </span><span class="k">constraints</span><span class="p">:</span>
+<span class="w">  </span><span class="ss">&quot;people_streets_fk&quot;</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">streets</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sql-index-create-indexes-in-sql">
+<h2><span class="section-number">15.2.9. </span>SQL ထဲတွင် Index များဖန်တီးခြင်း (Create Indexes in SQL)<a class="headerlink" href="#sql-index-create-indexes-in-sql" title="Link to this heading"></a></h2>
+<p>ကျွန်ုပ်တို့သည် People နာမည်များကို လျင်လျင်မြန်မြန်ရှာဖွေလိုပါသည်။ ထိုသို့လုပ်ဆောင်ရန် people table ၏ name column တွင် index တစ်ခုဖန်တီးပေးနိုင်ပါသည်-</p>
+<div class="highlight-psql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="n">people_name_idx</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">people</span><span class="p">(</span><span class="k">name</span><span class="p">);</span>
+
+<span class="go">\d people</span>
+</pre></div>
+</div>
+<p>ရလာဒ်အနေဖြင့်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Table</span><span class="w"> </span><span class="ss">&quot;public.people&quot;</span>
+
+<span class="w">  </span><span class="k">Column</span><span class="w">   </span><span class="o">|</span><span class="w">         </span><span class="k">Type</span><span class="w">          </span><span class="o">|</span><span class="w">                      </span><span class="n">Modifiers</span>
+<span class="c1">-----------+-----------------------+-----------------------------------</span>
+<span class="w"> </span><span class="n">id</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">nextval</span>
+<span class="w">           </span><span class="o">|</span><span class="w">                       </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;people_id_seq&#39;</span><span class="p">::</span><span class="n">regclass</span><span class="p">)</span>
+<span class="w"> </span><span class="n">name</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="w"> </span><span class="n">house_no</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="w"> </span><span class="n">street_id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="w"> </span><span class="n">phone_no</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="w">     </span><span class="o">|</span>
+<span class="n">Indexes</span><span class="p">:</span>
+<span class="w"> </span><span class="ss">&quot;people_pkey&quot;</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="w"> </span><span class="ss">&quot;people_name_idx&quot;</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w">    </span><span class="o">&lt;</span><span class="c1">-- new index added!</span>
+<span class="k">Foreign</span><span class="o">-</span><span class="k">key</span><span class="w"> </span><span class="k">constraints</span><span class="p">:</span>
+<span class="w"> </span><span class="ss">&quot;people_streets_fk&quot;</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">streets</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sql-table-dropping-tables-in-sql">
+<h2><span class="section-number">15.2.10. </span>SQL ထဲတွင် Table များကို ဖြုတ်ချန်/ဖျက်ခြင်း (Dropping Tables in SQL)<a class="headerlink" href="#sql-table-dropping-tables-in-sql" title="Link to this heading"></a></h2>
+<p>Table တစ်ခုကို ဖျက်ပစ်လိုပါက <kbd class="kbd docutils literal notranslate">drop</kbd> command ကိုအသုံးပြုနိုင်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">streets</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>လက်ရှိဥပမာတွင် အထက်ပါ commnad သည် အလုပ်မဖြစ်ပါ၊ အဘယ့်ကြောင့်ပါလဲ?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>ဤကိစ္စတွင် DROP command အလုပ်မလုပ်ရခြင်း၏ အကြောင်းရင်းမှာ <em>people</em> table တွင် <em>streets</em> table သို့ချိတ်ထားသော Foreign Key constraint တစ်ခုရှိနေသောကြောင့်ဖြစ်သည်။ ဆိုလိုသည်မှာ <em>streets</em> table  ကို drop (သို့မဟုတ် delete) လုပ်ခြင်းသည်  <em>people</em> table တွင် <em>streets</em> data အကိုးအကားများကျန်ရှိတော့မည်မဟုတ်ပါ။</p>
+<p><code class="docutils literal notranslate"><span class="pre">CASCADE</span></code> command အသုံးပြုပြီး <em>streets</em> table ကို အတင်းအကြပ် ဖျက်ပစ်နိုင်ပါသည်၊ သို့သော် ထိုသို့လုပ်ခြင်းသည် <em>people</em> table ကိုပါ ဖျက်ပစ်လိုက်နိုင်ပြီး <em>streets</em> table နှင့် relationship ရှိနေသော အခြား table များကိုပါ ဖျက်ပစ်လိုက်နိုင်ပါသည်။ သတိထား၍ အသုံးပြုပါ။</p>
+</div>
+<p><cite>people</cite> table တွက် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">drop</kbd> <kbd class="kbd docutils literal notranslate">table</kbd></kbd> command ကိုအသုံးပြုခဲ့ပါက အဆင်ပြေမည်ဖြစ်သည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">people</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>သင်သည် အဆိုပါ command ကိုရိုက်ထည့်ပြီး <kbd class="kbd docutils literal notranslate">people</kbd> table ကို ဖျက်ပစ်ခဲ့ပါက ၎င်း table ကို နောက်လေ့ကျင့်ခန်းများတွင် ပြန်လည်လိုအပ်မည်ဖြစ်သည့်အတွက် ပြန်လည်တည်ဆောက်ပေးပါ။</p>
+</div>
+</section>
+<section id="pgadmin-iii-a-word-on-pgadmin-iii">
+<h2><span class="section-number">15.2.11. </span>pgAdmin III အကြောင်း (A word on pgAdmin III)<a class="headerlink" href="#pgadmin-iii-a-word-on-pgadmin-iii" title="Link to this heading"></a></h2>
+<p><cite>psql</cite> prompt မှ SQL command များသည် database များအကြောင်းလေ့လာရာတွင် အလွန်အသုံးဝင်သော နည်းလမ်းတစ်ခုဖြစ်ပါသည်။ သို့သော် သင်လေ့လာခဲ့သောအရာများစွာကို လုပ်ဆောင်ရန် ပိုမိုမြန်ဆန်ပြီး လွယ်ကူသော နည်းလမ်းများရှိပါသည်။ pgAdmin III ကို install ပြုလုပ်ပါက table များဖန်တီးခြင်း၊ drop လုပ်ခြင်း၊ ပြောင်းလဲခြင်း အစရှိသည်တို့ကို GUI တစ်ခုထဲတွင် click ပြုလုပ်ပြီး လုပ်ဆောင်နိုင်မည်ဖြစ်ပါသည်။</p>
+<p>Ubuntu တွင် အောက်ပါအတိုင်း install လုပ်နိုင်ပါသည်-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pgadmin3
+</pre></div>
+</div>
+<p>pgAdmin III အကြောင်းကို နောက်ထပ် မော်ဂျူးတွင် ပိုမိုအသေးစိတ် လေ့လာရမည်ဖြစ်သည်။</p>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">15.2.12. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>Database အသစ်စက်စက်တစ်ခုကို အစမှအဆုံး မည်သို့ဖန်တီးရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">15.2.13. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်သင်ခန်းစာတွင် DBMS ကိုအသုံးပြုပြီး data အသစ်များ မည်သို့ထည့်သွင်းရမည်ကို လေ့လာရမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="db_intro.html" class="btn btn-neutral float-left" title="15.1. သင်ခန်းစာ - Database မိတ်ဆက် (Lesson: Introduction to Databases)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adding_data.html" class="btn btn-neutral float-right" title="15.3. သင်ခန်းစာ - Model ထဲသို့ Data ထည့်သွင်းခြင်း (Lesson: Adding Data to the Model)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/database_concepts/data_model.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/database_concepts/data_model.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/database_concepts/data_model.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/database_concepts/data_model.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/database_concepts/data_model.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/database_concepts/data_model.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/database_concepts/data_model.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/database_concepts/data_model.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/database_concepts/data_model.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/database_concepts/data_model.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/database_concepts/data_model.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/d536300715299d1321557dcf6a1bd256" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

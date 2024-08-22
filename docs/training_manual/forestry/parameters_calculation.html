@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14.7. သင်ခန်းစာ - Forest Parameter များတွက်ချက်ခြင်း (Lesson: Calculating the Forest Parameters) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/forestry/parameters_calculation.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="14.8. သင်ခန်းစာ - LiDAR Data မှ DEM ထုတ်ယူခြင်း (Lesson: DEM from LiDAR Data)" href="basic_lidar.html" />
+    <link rel="prev" title="14.6. သင်ခန်းစာ - Atlas Tool ဖြင့် အသေးစိတ်ကျသော မြေပုံများဖန်တီးခြင်း (Lesson: Creating Detailed Maps with the Atlas Tool)" href="forest_maps.html" />
+  <meta name="description" content="QGIS testing documentation: 14.7. သင်ခန်းစာ - Forest Parameter များတွက်ချက်ခြင်း (Lesson: Calculating the Forest Parameters)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="forestry_intro.html">14.1. သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="map_georeferencing.html">14.2. သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stands_digitizing.html">14.3. သင်ခန်းစာ - သစ်တောပင်ထောင်များ Digitize ပြုလုပ်ခြင်း (Lesson: Digitizing Forest Stands)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updating_stands.html">14.4. သင်ခန်းစာ - Forest Stand များကို Update ပြုလုပ်ခြင်း (Lesson: Updating Forest Stands)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systematic_sampling.html">14.5. သင်ခန်းစာ - စနစ်တကျနမူနာကောက်ယူခြင်းဒီဇိုင်း (Lesson: Systematic Sampling Design)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forest_maps.html">14.6. သင်ခန်းစာ - Atlas Tool ဖြင့် အသေးစိတ်ကျသော မြေပုံများဖန်တီးခြင်း (Lesson: Creating Detailed Maps with the Atlas Tool)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">14.7. သင်ခန်းစာ - Forest Parameter များတွက်ချက်ခြင်း (Lesson: Calculating the Forest Parameters)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inventory-follow-along-adding-the-inventory-results">14.7.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Inventory ရလာဒ်များ ထည့်သွင်းခြင်း (Follow Along: Adding the Inventory Results)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-follow-along-whole-forest-parameters-estimation">14.7.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - သစ်တောတစ်ခုလုံးအတွက် Parameter များခန့်မှန်းခြင်း (Follow Along: Whole Forest Parameters Estimation)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stand-parameter-follow-along-estimating-stand-parameters">14.7.3. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Stand Parameter များခန့်မှန်းခြင်း (Follow Along: Estimating Stand Parameters)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">14.7.4. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">14.7.5. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="basic_lidar.html">14.8. သင်ခန်းစာ - LiDAR Data မှ DEM ထုတ်ယူခြင်း (Lesson: DEM from LiDAR Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="results_map.html">14.9. သင်ခန်စာ - မြေပုံရေးဆွဲပြသခြင်း (Lesson: Map Presentation)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">14. </span>မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">14.7. </span>သင်ခန်းစာ - Forest Parameter များတွက်ချက်ခြင်း (Lesson: Calculating the Forest Parameters)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/forestry/parameters_calculation.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="forest_maps.html" class="btn btn-neutral float-left" title="14.6. သင်ခန်းစာ - Atlas Tool ဖြင့် အသေးစိတ်ကျသော မြေပုံများဖန်တီးခြင်း (Lesson: Creating Detailed Maps with the Atlas Tool)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="basic_lidar.html" class="btn btn-neutral float-right" title="14.8. သင်ခန်းစာ - LiDAR Data မှ DEM ထုတ်ယူခြင်း (Lesson: DEM from LiDAR Data)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="forest-parameter-lesson-calculating-the-forest-parameters">
+<h1><span class="section-number">14.7. </span>သင်ခန်းစာ - Forest Parameter များတွက်ချက်ခြင်း (Lesson: Calculating the Forest Parameters)<a class="headerlink" href="#forest-parameter-lesson-calculating-the-forest-parameters" title="Link to this heading"></a></h1>
+<p>Forest inventory ၏ ရည်ရွယ်ချက်မှာ သစ်တော၏ parameter များကို ခန့်မှန်းရန်ဖြစ်ပါသည်။ ယခင်သင်ခန်းစာမှ ဥပမာကို ဆက်လက်လုပ်ဆောင်မည်ဖြစ်ပြီး ကွင်းထဲတွင် ကောက်ယူထားသော inventory အချက်အလက်များကို သစ်တော parameter များတွက်ချက်ရာတွင် အသုံးပြုပါမည်၊ သစ်တောတစ်ခုလုံးအတွက် ဦးစွာတွက်ချက်မည်ဖြစ်ပြီး ထို့နောက် digitize ပြုလုပ်ခဲ့သော stand များအတွက် တွက်ချက်မည်ဖြစ်သည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> ယေဘုယျအဆင့် နှင့် stand အဆင့်များ၌ သစ်တော parameter များတွက်ချက်ရန်။</p>
+<section id="inventory-follow-along-adding-the-inventory-results">
+<h2><span class="section-number">14.7.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Inventory ရလာဒ်များ ထည့်သွင်းခြင်း (Follow Along: Adding the Inventory Results)<a class="headerlink" href="#inventory-follow-along-adding-the-inventory-results" title="Link to this heading"></a></h2>
+<p>ကွင်းဆင်းအဖွဲ့များသည် သင်ထောက်ပံ့ပေးလိုက်သောအချက်အလက်များ၏အကူအညီဖြင့် နမူနာကွက်တိုင်းတွင် ရှိသော သစ်တောဆိုင်ရာအချက်အလက်များကို ကောက်ယူစုဆောင်းခဲ့ပါသည်။</p>
+<p>ကွင်းထဲတွင် အချက်အလက်များကို စာရွက် form များဖြင့် ကောက်ယူမည်ဖြစ်ပြီး နောက်မှ spreadsheet တစ်ခုထဲသို့ ဖြည့်သွင်းမည်ဖြစ်သည်။ နမူနာကွက်အချက်အလက်များကို <code class="file docutils literal notranslate"><span class="pre">.csv</span></code> file တစ်ခုထဲတွင် ထည့်သွင်းထားပြီး QGIS ထဲတွင် အလွယ်တကူဖွင့်နိုင်ပါသည်။</p>
+<p>ယခင်သင်ခန်းစာမှ <code class="file docutils literal notranslate"><span class="pre">forest_inventory.qgs</span></code> အမည်ရှိသော QGIS project ကို ဆက်လက်လုပ်ဆောင်ပါမည်။</p>
+<p>ဦးစွာ QGIS project ထဲသို့ နမူနာကွက် တိုင်းတာမှုများကို ထည့်သွင်းပါ-</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">Layer ► Add Layer ► Add Delimited Text Layer…</span> သို့သွားပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data/forestry/results/</span></code> ထဲတွင် ရှိသော <code class="file docutils literal notranslate"><span class="pre">systematic_inventory_results.csv</span></code> ဖိုင်ကို ရွေးချယ်ဖွင့်ပေးပါ။</p></li>
+<li><p><span class="guilabel">Point coordinates</span> option ကို အမှန်ခြစ်ခြစ်ထားပါ။</p></li>
+<li><p>ကိုဩဒိနိတ်များအတွက် <span class="guilabel">X</span> နှင့် <span class="guilabel">Y</span> field များကို သတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>CRS မေးမြန်းလာသောအခါ <span class="guilabel">ETRS89 / ETRS-TM35FIN</span> CRS ကိုရွေးချယ်ပါ။</p></li>
+<li><p>Layer အသစ်၏ <span class="guilabel">Attribute table</span> ကိုဖွင့်ပြီး data ကိုကြည့်ပါ။</p></li>
+</ol>
+<p><code class="file docutils literal notranslate"><span class="pre">exercise_data/forestry/results/</span></code> folder ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">legend_2012_inventorydata.txt</span></code> text ဖိုင်ထဲတွင် နမူနာကွက်တိုင်းတာမှုများ၌ပါဝင်သော data များ၏အမျိုးအစားကို ဖတ်ရှုနိုင်ပါသည်။</p>
+<p>ထည့်သွင်းလိုက်သော <code class="file docutils literal notranslate"><span class="pre">systematic_inventory_results</span></code> layer သည် <code class="file docutils literal notranslate"><span class="pre">.csv</span></code> ဖိုင်ထဲရှိ စာသားအချက်အလက်များကို ကိုယ်စားပြုဖော်ပြရုံသာဖြစ်ပါသည်။ ဆက်လက်မလုပ်ဆောင်မီတွင် inventory ရလာဒ်များကို spatial dataset အစစ်အမှန်သို့ ပြောင်းလဲပေးပါ-</p>
+<ol class="arabic simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">systematic_inventory_results</span></code> layer ပေါ်တွင် right-click နှိပ်ပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data/forestry/results/</span></code> folder သို့သွားပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">sample_plots_results.shp</span></code> ဟုအမည်ပေးပါ။</p></li>
+<li><p><span class="guilabel">Add saved file to map</span> ကိုအမှန်ခြစ်ပါ။</p></li>
+<li><p>Project မှ <code class="file docutils literal notranslate"><span class="pre">systematic_inventory_results</span></code> layer ကိုဖယ်ရှားပါ။</p></li>
+</ol>
+</section>
+<section id="parameter-follow-along-whole-forest-parameters-estimation">
+<h2><span class="section-number">14.7.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - သစ်တောတစ်ခုလုံးအတွက် Parameter များခန့်မှန်းခြင်း (Follow Along: Whole Forest Parameters Estimation)<a class="headerlink" href="#parameter-follow-along-whole-forest-parameters-estimation" title="Link to this heading"></a></h2>
+<p>Inventory ရလာဒ်များမှ သစ်တောဧရိယာတစ်ခုလုံးအတွက် ပျမ်းမျှတန်ဖိုးများကို တွက်ချက်ပေးနိုင်ပါသည်၊ ဥပမာ- ထုထည် နှင့် တစ်ဟက်တာရှိ အပင်အရေအတွက် အစရှိသည့် မိမိစိတ်ဝင်စားသော parameter များအတွက်။ Systematic နမူနာကွက်များသည် တူညီသောဧရိယာများကို ကိုယ်စားပြုသောကြောင့် ထုထည်ပျမ်းမျှနှင့် တစ်ဟက်တာရှိ ပျမ်းမျှအပင်အရေအတွက် များကို <code class="file docutils literal notranslate"><span class="pre">sample_plots_results</span></code> layer မှ တိုက်ရိုက်တွက်ချက်နိုင်ပါသည်။</p>
+<p><span class="guilabel">Basic statistics</span> tool ကိုအသုံးပြု၍ vector layer တစ်ခုထဲရှိ field တစ်ခု၏ပျမ်းမျှကို တွက်ချက်နိုင်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">Vector ► Analysis Tools ► Basic statistics for Fields</span> ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Input Vector Layer</span> အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">sample_plots_results</span></code> ကိုရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">Target field</span> တွင် <code class="docutils literal notranslate"><span class="pre">Vol</span></code> ကိုရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>သစ်တောထဲရှိ ပျမ်းမျှထုထည်သည် <code class="docutils literal notranslate"><span class="pre">135.2</span> <span class="pre">m3/ha</span></code> ဖြစ်ပါသည်။</p>
+<p>ပျမ်းမျှအပင်အရေအတွက်ကိုလည်း ထိုနည်းအတိုင်း တွက်ချက်နိုင်ပါသည်၊ <code class="docutils literal notranslate"><span class="pre">2745</span> <span class="pre">stems/ha</span></code> ဖြစ်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/statistics_pvol-pstem.png" src="../../../_images/statistics_pvol-pstem.png" />
+</figure>
+</section>
+<section id="stand-parameter-follow-along-estimating-stand-parameters">
+<h2><span class="section-number">14.7.3. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Stand Parameter များခန့်မှန်းခြင်း (Follow Along: Estimating Stand Parameters)<a class="headerlink" href="#stand-parameter-follow-along-estimating-stand-parameters" title="Link to this heading"></a></h2>
+<p>သင် digitize ပြုလုပ်ခဲ့သော forest stand အမျိုးမျိုးအတွက် ခန့်မှန်းတွက်ချက်ရာတွင် ထို systematic နမူနာကွက်များကို အသုံးပြုနိုင်ပါသည်။ အချို့သော forest stand များတွင် နမူနာကွက်များကျရောက်ခြင်းမရှိသောကြောင့် ထိုနေရာများအတွက် အချက်အလက်များရရှိမည်မဟုတ်ပါ။ ထိုကိစ္စအတွက် systematic inventory စတင်အစီအစဉ်ချခဲ့စဉ်က နမူနာကွက်အပိုများကို ချမှတ်ထားရှိပြီးဖြစ်ကာ ကွင်းဆင်းအဖွဲ့အနေဖြင့် ထို နမူနာကွက်အပို အနည်းငယ်တွင် တိုင်းတာမှုလုပ်နိုင်မည်ဖြစ်သည်။ သို့မဟုတ် inventory ကိုပြီးပြည့်စုံစေရန် ကျန်ရှိနေသော forest stand များ၏ ခန့်မှန်းချက်များကို ရရှိရန် နောက်ပိုင်းမှ ကွင်းဆင်းအဖွဲ့တစ်ဖွဲ့ကို စေလွှတ်နိုင်ပါသည်။ မည်သို့ပင်ဆိုစေကာမူ အစီအစဉ်ချမှတ်ထားသော နမူနာကွက်များကို အသုံးပြု၍ stand များ၏အချက်အလက်များကို ရရှိမည်ဖြစ်ပါသည်။</p>
+<p>Forest stand တစ်ခုချင်းစီအတွင်းကျရောက်နေသော နမူနာကွက်များ၏ ပျမ်းမျှများကို ရယူလိုခြင်းဖြစ်သည်။ ၎င်းတို့၏ သက်ဆိုင်ရာတည်နေရာများပေါ်မူတည်ပြီး အချက်အလက်များကို ပေါင်းစည်းလိုသောအခါ spatial join တစ်ခုကို လုပ်ဆောင်ရပါမည်-</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">Vector ► Data Management ► Join attributes by location</span> tool ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Target vector layer</span> အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">forest_stands_2012</span></code> ကိုသတ်မှတ်ပါ။ ရလာဒ်တွက်ထုတ်လိုသည့် layer ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Join vector layer</span> အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">sample_plots_results</span></code> ကိုသတ်မှတ်ပါ။ ထို layer မှ ခန့်မှန်းချက်များကို တွက်ချက်လိုခြင်းဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Take summary of intersecting features</span> ကိုအမှန်ခြစ်ပါ။</p></li>
+<li><p><span class="guilabel">Mean</span> ကိုသာ တွက်ချက်ရန် အမှန်ခြစ်ပါ။</p></li>
+<li><p>ရလာဒ်ကို <code class="file docutils literal notranslate"><span class="pre">forest_stands_2012_results.shp</span></code> ဟုအမည်ပေးပြီး <code class="file docutils literal notranslate"><span class="pre">exercise_data/forestry/results/</span></code> folder ထဲတွင် သိမ်းဆည်းပါ။</p></li>
+<li><p>နောက်ဆုံးတွင် <span class="guilabel">Keep all records…</span> ကို select လုပ်ပါ၊ ထိုမှသာ အချက်အလက်မရရှိသော stand များကို နောက်ပိုင်းတွင် စစ်ဆေးနိုင်မည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>Project ထဲသို့ layer အသစ်ထည့်သွင်းမည်လား မေးမြန်းလာပါက accept လုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Join attributes by location</span> tool ကိုပိတ်လိုက်ပါ။</p></li>
+</ol>
+<p><span class="guilabel">forest_stands_2012_results</span> အတွက် <span class="guilabel">Attribute table</span> ကိုဖွင့်ပြီး ရရှိလာသော ရလာဒ်များကို စစ်ဆေးကြည့်ပါ။ Forest stand အရေအတွက်တွင် တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">NULL</span></code> ဖြစ်နေသည်များကို တွေ့ရပါလိမ့်မည်၊ ၎င်းတို့သည် နမူနာကွက်မရှိသောနေရာများဖြစ်ပါသည်။ ၎င်းတို့အားလုံးကို select လုပ်ပြီး မြေပုံထဲတွင် ကြည့်လိုက်ပါက သေးငယ်သော stand များဖြစ်နေကြသည်ကို တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/stands_no_info.png" src="../../../_images/stands_no_info.png" />
+</figure>
+<p>ယခင်တွက်ချက်ခဲ့သောနည်းအတိုင်း သစ်တောတစ်ခုလုံးအတွက် ပျမ်းမျှတန်ဖိုးများကို တွက်ချက်ကြည့်ပါမည်၊ ဒီတစ်ကြိမ်တွင် stand များအတွက်တွက်ချက်ခဲ့သော ပျမ်းမျှတန်ဖိုးများကို ယခုတွက်ချက်မှုအတွက် အခြေခံများအနေဖြင့် အသုံးပြုမည်ဖြစ်သည်။ ယခင်အခြေအနေတွင် နမူနာကွက်တစ်ခုချင်းစီသည် <code class="docutils literal notranslate"><span class="pre">80x80</span> <span class="pre">m</span></code> stand တစ်ခုကို ကိုယ်စားပြုပါသည်။ ယခုအခါ stand တစ်ခုချင်းစီ၏ ဧရိယာကို သီးခြားအနေဖြင့် မှတ်ယူရပါမည်။ ဥပမာအားဖြင့် ထုထည်များအတွက် m3/ha ဖြင့်ရှိနေသော ပျမ်းမျှတန်ဖိုးများကို stand များအတွက် စုစုပေါင်းထုထည်များသို့ ပြောင်းလဲလိုက်ခြင်းဖြစ်သည်။</p>
+<p>Stand များအတွက် ဧရိယာများကို ဦးစွာ တွက်ချက်ရန်လိုအပ်ပါသည်၊ ထို့နောက် စုစုပေါင်းထုထည်များနှင့် stand တစ်ခုချင်းစီအတွက် အပင်အရေအတွက်များကို တွက်ချက်ရန် လိုအပ်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Attribute table</span> ထဲတွင် editing ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Field calculator</span> ကိုဖွင့်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code> ဆိုသည့် field အသစ်တစ်ခုကို ဖန်တီးပါ။</p></li>
+<li><p><span class="guilabel">Output field type</span> တွင် <code class="docutils literal notranslate"><span class="pre">Decimal</span> <span class="pre">number</span> <span class="pre">(real)</span></code> ဟုသတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Precision</span> တွင် <code class="docutils literal notranslate"><span class="pre">2</span></code> ဟုသတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Expression</span> box ထဲတွင် <code class="docutils literal notranslate"><span class="pre">$area</span> <span class="pre">/</span> <span class="pre">10000</span></code> ဟုရေးသားပါ။ Forest stand များ၏ဧရိယာကို ဟက်တာ ဖြင့်တွက်ချက်ပေးပါလိမ့်မည်။</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>Stand တိုင်းအတွက် ခန့်မှန်းထားသော စုစုပေါင်းထုထည်များနှင့် အပင်အရေအတွက်များပါရှိသော field တစ်ခုကို တွက်ချက်ပါမည်-</p>
+<ol class="arabic simple">
+<li><p>Field များကို <code class="docutils literal notranslate"><span class="pre">s_vol</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">s_stem</span></code> ဟုအမည်ပေးပါ။</p></li>
+<li><p>Field များသည် integer (ကိန်းပြည့်) များဖြစ်နိုင်သလို real (ကိန်းစစ်) များလည်း ဖြစ်နိုင်ပါသည်။</p></li>
+<li><p>စုစုပေါင်းထုထည်များအတွက် <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span>&#160; <span class="pre">*</span>&#160; <span class="pre">&quot;MEANVol&quot;</span></code> ဆိုသည့် expression နှင့် အပင်အရေအတွက်များအတွက် <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span>&#160; <span class="pre">*</span>&#160; <span class="pre">&quot;MEANStems&quot;</span></code> ဆိုသည့် expression ကိုအသုံးပြုပါ။</p></li>
+<li><p>ပြီးဆုံးပါက edit လုပ်ထားသည်များကို သိမ်းဆည်းပါ။</p></li>
+<li><p>Editing ကိုပိတ်လိုက်ပါ။</p></li>
+</ol>
+<p>ယခင်အခြေအနေတွင် နမူနာကွက်တိုင်း၏ ကိုယ်စားပြုဧရိယာများသည် အတူတူပင်ဖြစ်ပါသည်၊ ထို့ကြောင့် နမူနာကွက်များ၏ ပျမ်းမျှကိုတွက်ချက်ရန် လုံလောက်ပါသည်။ ယခု တွက်ချက်ရာတွင် stand ထုထည်များစုစုပေါင်း သို့မဟုတ် အပင်အရေအတွက်များကို stand များ၏ဧရိယာစုစုပေါင်းနှင့် စားရန် လိုအပ်ပါသည်။</p>
+<ol class="arabic simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">forest_stands_2012_results</span></code> layer အတွက် <span class="guilabel">Attribute table</span> ထဲတွင် အချက်အလက်များပါဝင်သော stand များအားလုံးကို select လုပ်ပါ။</p></li>
+<li><p><span class="menuselection">Vector ► Analysis Tools ► Basic statistics for fields</span> ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Input layer</span> အနေဖြင့် <code class="file docutils literal notranslate"><span class="pre">forest_stands_2012_results</span></code> ကိုရွေးပါ။</p></li>
+<li><p><span class="guilabel">Field to calculate statistics on</span> တွင် <code class="docutils literal notranslate"><span class="pre">area</span></code> ကိုရွေးပါ။</p></li>
+<li><p><span class="guilabel">Selected features only</span> ကိုအမှန်ခြစ်ပါ။</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../../_images/stands_area_stats.png" src="../../../_images/stands_area_stats.png" />
+</figure>
+<p>မြင်တွေ့ရသည့်အတိုင်း stand များ၏ ဧရိယာစုစုပေါင်းသည် <code class="docutils literal notranslate"><span class="pre">66.04</span> <span class="pre">ha</span></code> ဖြစ်ပါသည်။ ကျန်ရှိနေသော forest stand များ၏ဧရိယာသည် <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">ha</span></code> ခန့်သာ ရှိပါသည်။</p>
+<p>အဆိုပါ stand များအတွက် စုစုပေါင်းထုထည်ကို တွက်ချက်နိုင်ပါသည်၊ စုစုပေါင်းထုထည်သည် <code class="docutils literal notranslate"><span class="pre">8908</span> <span class="pre">m3/ha</span></code> ဖြစ်ပြီး စုစုပေါင်းအပင်အရေအတွက်သည် <code class="docutils literal notranslate"><span class="pre">179594</span> <span class="pre">stems</span></code> ဖြစ်ပါသည်။</p>
+<p>နမူနာကွက်များမှ အချက်အလက်များကို တိုက်ရိုက်အသုံးမပြုပဲ forest stand များမှ အချက်အလက်များကို အသုံးပြုသောအခါ အောက်ပါ ပျမ်းမျှခန့်မှန်းချက်များကို ရရှိပါသည်-</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">184.9</span> <span class="pre">m3/ha</span></code> နှင့်</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2719</span> <span class="pre">stems/ha</span></code></p></li>
+</ul>
+<p><code class="file docutils literal notranslate"><span class="pre">forest_inventory.qgs</span></code> QGIS project ဖိုင်ကို သိမ်းဆည်းပါ။</p>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">14.7.4. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>သစ်တောတစ်ခုလုံးအတွက် ခန့်မှန်းချက်များကို systematic နမူနာကွက်များမှအချက်အလက်များကိုအသုံးပြု၍ တွက်ချက်ခဲ့ခြင်းဖြစ်ပြီး၊ သစ်တောဝိသေသလက္ခဏာများကို ထည့်သွင်းမစဉ်းစားပဲ ကောင်းကင်ဓာတ်ပုံမှ interpret လုပ်ထားသော forest stand များကိုအသုံးပြုခဲ့ခြင်းဖြစ်ပါသည်။ သီးခြား stand များအတွက် အဖိုးတန်သောအချက်အလက်များကိုလည်း ရရှိခဲ့ပြီး ထိုအချက်အလက်များကို နောက်လာမည့်နှစ်များ၌ သစ်တောစီမံအုပ်ချုပ်မှု အစီအစဉ်များရေးဆွဲရာတွင် အသုံးပြုနိုင်မည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">14.7.5. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်သင်ခန်းစာတွင် LiDAR dataset တစ်ခုမှ hillshade နောက်ခံတစ်ခုကို ဖန်တီးမည်ဖြစ်ပါသည်၊ ယခုသင်ခန်းစာတွင် တွက်ချက်ခဲ့သော သစ်တောရလာဒ်များကို မြေပုံပေါ်တွင် ပြသရာတွင် ထို hillshade ကို အသုံးပြုမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="forest_maps.html" class="btn btn-neutral float-left" title="14.6. သင်ခန်းစာ - Atlas Tool ဖြင့် အသေးစိတ်ကျသော မြေပုံများဖန်တီးခြင်း (Lesson: Creating Detailed Maps with the Atlas Tool)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="basic_lidar.html" class="btn btn-neutral float-right" title="14.8. သင်ခန်းစာ - LiDAR Data မှ DEM ထုတ်ယူခြင်း (Lesson: DEM from LiDAR Data)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/forestry/parameters_calculation.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/forestry/parameters_calculation.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/forestry/parameters_calculation.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/forestry/parameters_calculation.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/forestry/parameters_calculation.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/forestry/parameters_calculation.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/forestry/parameters_calculation.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/forestry/parameters_calculation.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/forestry/parameters_calculation.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/forestry/parameters_calculation.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/forestry/parameters_calculation.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/cfbee176630b4c8e8a2d06f2b90f54c1" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

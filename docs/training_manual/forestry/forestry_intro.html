@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14.1. သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/forestry/forestry_intro.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="14.2. သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)" href="map_georeferencing.html" />
+    <link rel="prev" title="14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)" href="index.html" />
+  <meta name="description" content="QGIS testing documentation: 14.1. သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">14.1. သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#forestry-sample-data">14.1.1. သစ်တောကဏ္ဍနမူနာဒေတာ (Forestry Sample Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="map_georeferencing.html">14.2. သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stands_digitizing.html">14.3. သင်ခန်းစာ - သစ်တောပင်ထောင်များ Digitize ပြုလုပ်ခြင်း (Lesson: Digitizing Forest Stands)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updating_stands.html">14.4. သင်ခန်းစာ - Forest Stand များကို Update ပြုလုပ်ခြင်း (Lesson: Updating Forest Stands)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systematic_sampling.html">14.5. သင်ခန်းစာ - စနစ်တကျနမူနာကောက်ယူခြင်းဒီဇိုင်း (Lesson: Systematic Sampling Design)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forest_maps.html">14.6. သင်ခန်းစာ - Atlas Tool ဖြင့် အသေးစိတ်ကျသော မြေပုံများဖန်တီးခြင်း (Lesson: Creating Detailed Maps with the Atlas Tool)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parameters_calculation.html">14.7. သင်ခန်းစာ - Forest Parameter များတွက်ချက်ခြင်း (Lesson: Calculating the Forest Parameters)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basic_lidar.html">14.8. သင်ခန်းစာ - LiDAR Data မှ DEM ထုတ်ယူခြင်း (Lesson: DEM from LiDAR Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="results_map.html">14.9. သင်ခန်စာ - မြေပုံရေးဆွဲပြသခြင်း (Lesson: Map Presentation)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">14. </span>မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">14.1. </span>သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/forestry/forestry_intro.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="map_georeferencing.html" class="btn btn-neutral float-right" title="14.2. သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-forestry-module-presentation">
+<h1><span class="section-number">14.1. </span>သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)<a class="headerlink" href="#lesson-forestry-module-presentation" title="Link to this heading"></a></h1>
+<p>Forestry application အကြောင်းဖြစ်သော ယခုမော်ဂျူးကို လေ့လာရန် ဤသင်တန်းလက်စွဲ၏ မော်ဂျူး ၁ မှ ၁၁ အထိ လေ့လာထားရန်လိုအပ်ပါသည်။ နောက်လာမည့် သင်ခန်းစာများတွင်ပါရှိသော လေ့ကျင့်ခန်းများသည် သင့်ကို QGIS ထဲရှိ အခြေခံ operation များစွာကို လုပ်ဆောင်နိုင်စွမ်းရှိပြီးသားဟု မှတ်ယူမည်ဖြစ်ပြီး ယခင်က အသုံးမပြုရသေးသော tool များကိုသာလျှင် အသေးစိတ်ရှင်းပြပေးမည်ဖြစ်သည်။</p>
+<p>ယခုမော်ဂျူးသည် အခြေခံအဆင့် သင်ခန်းစာများ ဖြစ်သည့်အတွက် ယခင်က QGIS အသုံးပြုဖူးသည့်အတွေ့အကြုံရှိလျှင် ပြဿနာမရှိပဲ လိုက်လုပ်နိုင်မည်ဖြစ်သည်။</p>
+<p>ယခုမော်ဂျူးအတွက် ထပ်ဆောင်း data package တစ်ခုကို ဒေါင်းလုဒ်ပြုလုပ်ရန် လိုအပ်ပါသည်။</p>
+<section id="forestry-sample-data">
+<h2><span class="section-number">14.1.1. </span>သစ်တောကဏ္ဍနမူနာဒေတာ (Forestry Sample Data)<a class="headerlink" href="#forestry-sample-data" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ယခုမော်ဂျူးတွင် အသုံးပြုသော နမူနာ data သည် သင်တန်းလက်စွဲ data set ၏ တစ်ပိုင်းတစ်ပိုင်းဖြစ်ပြီး  <code class="file docutils literal notranslate"><span class="pre">exercise_data\forestry\</span></code> folder ထဲတွင် တွေ့နိုင်ပါသည်။</p>
+</div>
+<p>သစ်တောနှင့်ပတ်သက်သော နမူနာ data (သစ်တောမြေပုံ၊ သစ်တော data) များကို <a class="reference external" href="https://www.hamk.fi/campuses-and-maps/evo/?lang=en">EVO-HAMK forestry school</a> မှ ပံ့ပိုးပေးထားပါသည်။ Dataset များကို သင်ခန်းစာလိုအပ်ချက်များနှင့်ကိုက်ညီအောင် မွမ်းမံပြင်ဆင်ထားပါသည်။</p>
+<p>ယေဘုယျ နမူနာ data (ကောင်းကင်ဓာတ်ပုံများ၊ LiDAR data ၊ အခြေခံမြေပုံများ) များကို National Land Survey of Finland open data service မှ ရယူထားပြီး လေ့ကျင့်ခန်းများအတွက် အကိုးအကားယူထားပါသည်။ Open data file download service ကို အင်္ဂလိပ်ဘာသာဖြင့် <a class="reference external" href="https://tiedostopalvelu.maanmittauslaitos.fi/tp/kartta?lang=en">ဤတွင်</a> ဝင်ရောက်ရယူနိုင်ပါသည်။</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ယခုမော်ဂျူးတွင် GIS dataset များ ထည့်သွင်းခြင်း၊ ဖျက်ခြင်းနှင့် ပြောင်းလဲခြင်းများအတွက် ညွှန်ကြားချက်များပါဝင်ပါသည်။ ထိုအတွက် သင်တန်း dataset များကို ပံ့ပိုးပေးထားပါသည်။ ယခုဖော်ပြထားသော နည်းလမ်းများကို သင့်ကိုယ်ပိုင် data များနှင့်အသုံးပြုမည်ဆိုပါက အသုံးမပြုခင်တွင် သင့် data ကို အမြဲတမ်း backup ပြုလုပ်ထားပါ။</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="map_georeferencing.html" class="btn btn-neutral float-right" title="14.2. သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/forestry/forestry_intro.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/forestry/forestry_intro.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/forestry/forestry_intro.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/forestry/forestry_intro.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/forestry/forestry_intro.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/forestry/forestry_intro.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/forestry/forestry_intro.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/forestry/forestry_intro.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/forestry/forestry_intro.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/forestry/forestry_intro.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/forestry/forestry_intro.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/9b0916349b3e9dc3e34e16d7053c5478" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

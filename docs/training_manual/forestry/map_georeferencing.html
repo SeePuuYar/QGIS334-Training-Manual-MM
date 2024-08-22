@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14.2. သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/forestry/map_georeferencing.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="14.3. သင်ခန်းစာ - သစ်တောပင်ထောင်များ Digitize ပြုလုပ်ခြင်း (Lesson: Digitizing Forest Stands)" href="stands_digitizing.html" />
+    <link rel="prev" title="14.1. သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)" href="forestry_intro.html" />
+  <meta name="description" content="QGIS testing documentation: 14.2. သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="forestry_intro.html">14.1. သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">14.2. သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scan-scan-the-map">14.2.1. <abbr title="Basic level">★☆☆</abbr> မြေပုံကို scan ဖတ်ခြင်း (Scan the map)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scan-georeference-follow-along-georeferencing-the-scanned-map">14.2.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Scan ဖတ်ထားသောမြေပုံကို Georeference ပြုလုပ်ခြင်း (Follow Along: Georeferencing the scanned map)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">14.2.3. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">14.2.4. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stands_digitizing.html">14.3. သင်ခန်းစာ - သစ်တောပင်ထောင်များ Digitize ပြုလုပ်ခြင်း (Lesson: Digitizing Forest Stands)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updating_stands.html">14.4. သင်ခန်းစာ - Forest Stand များကို Update ပြုလုပ်ခြင်း (Lesson: Updating Forest Stands)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systematic_sampling.html">14.5. သင်ခန်းစာ - စနစ်တကျနမူနာကောက်ယူခြင်းဒီဇိုင်း (Lesson: Systematic Sampling Design)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forest_maps.html">14.6. သင်ခန်းစာ - Atlas Tool ဖြင့် အသေးစိတ်ကျသော မြေပုံများဖန်တီးခြင်း (Lesson: Creating Detailed Maps with the Atlas Tool)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parameters_calculation.html">14.7. သင်ခန်းစာ - Forest Parameter များတွက်ချက်ခြင်း (Lesson: Calculating the Forest Parameters)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basic_lidar.html">14.8. သင်ခန်းစာ - LiDAR Data မှ DEM ထုတ်ယူခြင်း (Lesson: DEM from LiDAR Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="results_map.html">14.9. သင်ခန်စာ - မြေပုံရေးဆွဲပြသခြင်း (Lesson: Map Presentation)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">14. </span>မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">14.2. </span>သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/forestry/map_georeferencing.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="forestry_intro.html" class="btn btn-neutral float-left" title="14.1. သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stands_digitizing.html" class="btn btn-neutral float-right" title="14.3. သင်ခန်းစာ - သစ်တောပင်ထောင်များ Digitize ပြုလုပ်ခြင်း (Lesson: Digitizing Forest Stands)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="georeference-lesson-georeferencing-a-map">
+<h1><span class="section-number">14.2. </span>သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)<a class="headerlink" href="#georeference-lesson-georeferencing-a-map" title="Link to this heading"></a></h1>
+<p>များသောအားဖြင့်လုပ်ဆောင်လေ့ရှိသော သစ်တောလုပ်ငန်းတစ်ခုသည် သစ်တောဧရိယာတစ်ခုအတွက် update ဖြစ်သော အချက်အလက်များရယူရန်ဖြစ်သည်။ အဆိုပါဧရိယာအတွက် ယခင်အချက်အလက်များသည် လွန်ခဲ့သောနှစ်များစွာအကြာက စာရွက်ပေါ်တွင်စုဆောင်းခဲ့သည့်အချက်အလက်များဖြစ်နိုင်ပါသည်၊ သို့မဟုတ် အချက်အလက်များကို digitize ပြုလုပ်ခဲ့သော်လည်း သင့်တွင် အဆိုပါ inventory data ၏ စာရွက် ဗားရှင်းသာ ကျန်ရှိနေခြင်းမျိုးလည်း ဖြစ်နိုင်ပါသည်။</p>
+<p>ထိုအချက်အလက်များကို GIS ထဲတွင် အသုံးပြုလိုပြီး inventory များကို နှိုင်းယှဉ်လိုသည်ဆိုပါက GIS software ထဲတွင် အချက်အလက်များကို လက်ဖြင့် digitize ပြုလုပ်ရန်လိုအပ်ပါလိမ့်မည်။ သို့သော် digitize မစတင်မီတွင် ပထမဦးဆုံးလုပ်ဆောင်ရမည့် အရေးကြီးသောအဆင့်သည် မြေပုံကို scan ပြုလုပ်ခြင်းနှင့် georeference ပြုလုပ်ခြင်းဖြစ်သည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> QGIS ထဲရှိ Georeferencer tool ကို အသုံးပြုတတ်စေရန်။</p>
+<section id="scan-scan-the-map">
+<h2><span class="section-number">14.2.1. </span><abbr title="Basic level">★☆☆</abbr> မြေပုံကို scan ဖတ်ခြင်း (Scan the map)<a class="headerlink" href="#scan-scan-the-map" title="Link to this heading"></a></h2>
+<p>ပထမဦးဆုံးလုပ်ဆောင်ရမည်မှာ မြေပုံကို scan ဖတ်ရန်ဖြစ်သည်။ မြေပုံသည် အလွန်ကြီးနေလျှင် အပိုင်းလိုက် scan ဖတ်ပြီး တစ်ပိုင်းချင်းစီကို georeference ပြုလုပ်ခြင်းကို ထပ်ခါထပ်ခါပြုလုပ်ရပါလိမ့်မည်။ ထို့ကြောင့် မြေပုံကို အပိုင်းနည်းနိုင်သမျှနည်းအောင် scan ဖတ်ပါ။</p>
+<p>သင့်အနေဖြင့် ဤ manual ထဲတွင်ပေးထားသော မြေပုံမဟုတ်ပဲ အခြားမြေပုံတစ်ခုကို အသုံးပြုမည်ဆိုလျှင် ကိုယ်ပိုင် scanner ကိုအသုံးပြုပြီး မြေပုံကို image ဖိုင်အဖြစ် scan ဖတ်ပြီး 300 DPI resolution ထားပါ။ မြေပုံသည် အရောင်ပါရှိသောမြေပုံဖြစ်လျှင် အရောင်ဖြင့် scan ဖတ်ပါ၊ သို့မှသာ နောက်ပိုင်းတွင် အဆိုပါ အရောင်များကိုအသုံးပြုပြီး မြေပုံကို layer အမျိုးမျိုး (ဥပမာ- သစ်တောပင်ထောင်များ၊ ကွန်တိုမျဉ်းများ၊ လမ်းများ၊….) အဖြစ် အချက်အလက်များခွဲထုတ်နိုင်မည်ဖြစ်သည်။</p>
+<p>ယခုလေ့ကျင့်ခန်းအတွက် ယခင်က scan ဖတ်ထားပြီးသောမြေပုံကို အသုံးပြုပါမည်။ ထိုမြေပုံကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/forestry</span></code> folder ထဲတွင် <code class="file docutils literal notranslate"><span class="pre">rautjarvi_map.tif</span></code> အနေဖြင့် တွေ့နိုင်ပါသည်။</p>
+</section>
+<section id="scan-georeference-follow-along-georeferencing-the-scanned-map">
+<h2><span class="section-number">14.2.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Scan ဖတ်ထားသောမြေပုံကို Georeference ပြုလုပ်ခြင်း (Follow Along: Georeferencing the scanned map)<a class="headerlink" href="#scan-georeference-follow-along-georeferencing-the-scanned-map" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>QGIS ကိုဖွင့်ပြီး <span class="menuselection">Project ► Properties ► CRS</span> ထဲတွင် project ၏ CRS ကို <code class="docutils literal notranslate"><span class="pre">EPSG:3067</span> <span class="pre">-</span> <span class="pre">ETRS89</span> <span class="pre">/</span> <span class="pre">TM35FIN(E,N)</span></code> ဟုသတ်မှတ်ပါ။ ၎င်း CRS သည် Finland တွင် လက်ရှိအသုံးပြုနေသော CRS ဖြစ်သည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/f_1.png" src="../../../_images/f_1.png" />
+</figure>
+</li>
+<li><p>QGIS project ကို <code class="file docutils literal notranslate"><span class="pre">map_digitizing.qgs</span></code> အဖြစ် သိမ်းဆည်းပါ။</p></li>
+</ol>
+<p><span class="guilabel">Georeferencer</span> ဟုခေါ်သော QGIS မှ georeferencing tool ကိုအသုံးပြုပါမည်။ မြေပုံကို georeference ပြုလုပ်ရန်-</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Layer ►</span> <a class="reference internal" href="../../../_images/mGeorefRun.png"><img alt="georefRun" src="../../../_images/mGeorefRun.png" style="width: 1.5em;" /></a> <span class="menuselection">Georeferencer…</span> tool ကိုဖွင့်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/georeferencer.png" src="../../../_images/georeferencer.png" />
+</figure>
+</li>
+<li><p>Georeference ပြုလုပ်မည့် image အဖြစ် <code class="file docutils literal notranslate"><span class="pre">rautjarvi_map.tif</span></code> image ဖိုင်ကို <span class="menuselection">File ► Open raster</span> မှတဆင့် ထည့်သွင်းပါ။</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>နောက်တစ်ဆင့်အနေဖြင့် မြေပုံကို georeference ပြုလုပ်ရန်အတွက် transformation setting များကို သတ်မှတ်ပေးသင့်ပါသည်-</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Settings ► Transformation settings</span> ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Transformation type</span> တွင် <code class="docutils literal notranslate"><span class="pre">Linear</span></code> ဟုသတ်မှတ်ပြီး <span class="guilabel">Resampling method</span> တွင် <code class="docutils literal notranslate"><span class="pre">Nearest</span> <span class="pre">neighbour</span></code> ဟုသတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Target SRS</span> ဘေးရှိ <a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a> <sup>Select CRS</sup> ခလုတ်ကိုနှိပ်ပြီး <code class="docutils literal notranslate"><span class="pre">EPSG:2392</span> <span class="pre">-</span> <span class="pre">KKJ</span> <span class="pre">/</span> <span class="pre">Finland</span> <span class="pre">zone</span> <span class="pre">2</span></code> CRS ကိုရွေးချယ်ပါ၊ ၎င်းသည် ဤမြေပုံကို ဖန်တီးခဲ့စဉ် 1994 ခုနှစ်တွင် Finland ၌အသုံးပြုခဲ့သော CRS ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Output raster</span> box ဘေးရှိ icon ကိုနှိပ်ပါ၊ <code class="file docutils literal notranslate"><span class="pre">exercise_data\forestry\digitizing</span></code> folder ကိုဖန်တီးပြီး ဖိုင်အမည်ကို <code class="file docutils literal notranslate"><span class="pre">rautjarvi_georef.tif</span></code> ဟုအမည်ပေးပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Load in QGIS when done</span> ကိုအမှန်ခြစ်ပါ။</p></li>
+<li><p>ကျန်ရှိသော parameter များကို default အတိုင်း ချန်ထားခဲ့ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/Clipboard10.png" src="../../../_images/Clipboard10.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>မြေပုံထဲရှိ ကိုဩဒိနိတ်များကို အမှတ်အသားလုပ်ထားသော ကြက်ခြေခတ်များစွာ ပါဝင်နေပါသည်၊ အဆိုပါ ကြက်ခြေခတ်များကို georeference ပြုလုပ်ရာတွင် အသုံးပြုပါမည်။ Georeferencer window ထဲတွင် image ကို zoom အချုံ့/အချဲ့လုပ်ခြင်းနှင့် မြင်ကွင်းနေရာရွှေ့ခြင်းများ လုပ်ဆောင်နိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p>မြေပုံ၏ ဘယ်ဘက်အောက်ခြေထောင့်သို့ zoom ချဲ့ကြည့်ပါက <code class="docutils literal notranslate"><span class="pre">KKJ</span> <span class="pre">/</span> <span class="pre">Finland</span> <span class="pre">zone</span> <span class="pre">2</span></code> CRS တွင်ရှိသော X နှင့် Y ကိုဩဒိနိတ်အတွဲတစ်ခုဖြင့် ကြက်ခြေခတ်တစ်ခုရှိပါမည်။ ထို point ကို georeference ပြုလုပ်ခြင်းအတွက် ပထမဦးဆုံး မြေပြင်ထိန်းချုပ်အမှတ် (ground control point) အဖြစ်အသုံးပြုပါမည်။</p></li>
+<li><p><span class="guilabel">Add point</span> tool ကိုရွေးချယ်ပြီး ကြက်ခြေခတ်အလယ်ဆုံမှတ်တွင် click နှိပ်ပါ (pan နှင့် zoom ကို လိုအပ်သလိုအသုံးပြုပါ)။</p></li>
+<li><p><span class="guilabel">Enter map coordinates</span> dialogue ထဲတွင် မြေပုံပေါ်၌တွေ့ရသော ကိုဩဒိနိတ်များ (X: 2557000 and Y: 6786000) ကိုရိုက်ထည့်ပြီး CRS ကို <code class="docutils literal notranslate"><span class="pre">EPSG:2392</span> <span class="pre">-</span> <span class="pre">KKJ</span> <span class="pre">/</span> <span class="pre">Finland</span> <span class="pre">zone</span> <span class="pre">2</span></code> ထားပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/fillcoordinates.png" src="../../../_images/fillcoordinates.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p>
+<p>Georeferencing အတွက် ပထမ ကိုဩဒိနိတ် အဆင်သင့်ဖြစ်နေပြီ ဖြစ်သည်။</p>
+</li>
+<li><p>Image ထဲတွင် အခြား ကြက်ခြေခတ်များကို ရှာဖွေပါ၊ ၎င်းတို့သည် မြောက်ဘက်နှင့်အရှေ့ဘက်လားရာသို့ တစ်ခုနှင့်တစ်ခု 1000 မီတာ အကွာအဝေးဖြင့် ပိုင်းခြားထားပါသည်။ အဆိုပါ point များ၏ ကိုဩဒိနိတ်များကို ပထမ point နှင့်ဆက်စပ်ပြီး တွက်ချက်ပေးနိုင်ပါသည်။</p></li>
+<li><p>Image ကို zoom ချုံ့ပြီး အခြား ကြက်ခတ်တစ်ခုကို မတွေ့ခင်အထိ ညာဘက် သို့မဟုတ် အပေါ်ဘက်သို့ ရွှေ့ပြီး ကီလိုမီတာမည်မျှ ရွှေ့ပြီးသည်ကို ခန့်မှန်းပါ။ Ground control point များကို တစ်ခုနှင့်တစ်ခု ဝေးနိုင်သမျှဝေးအောင် နေရာချပါ။</p></li>
+<li><p>ပထမ point အတွက်လုပ်ခဲ့သည့်နည်းအတိုင်း နောက်ထပ် ground control point အနည်းဆုံး ၃ ခုကို digitize ပြုလုပ်ပါ။ ပြီးဆုံးပါက အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/Clipboard09.png" src="../../../_images/Clipboard09.png" />
+</figure>
+</li>
+</ol>
+<p>Digitize ပြုလုပ်ထားပြီးသော ground control point ၃ ခုနှင့်အတူ georeferencing error ကို point များမှ ထွက်လာသော အနီရောင်မျဉ်းတစ်ခုအဖြစ် မြင်တွေ့ရပါလိမ့်မည်။ Pixel ဖြင့်ဖော်ပြသော error ကို <span class="guilabel">GCP table</span> ထဲရှိ <span class="guilabel">dX[pixels]</span> နှင့် <span class="guilabel">dY[pixels]</span> column များထဲတွင်လည်း တွေ့ရနိုင်ပါသည်။ Pixel ဖြင့်ဖော်ပြသော error သည် 10 pixel ထက် မများသင့်ပါ။ အကယ်၍ 10 pixel ထက်များနေပါက digitize လုပ်ထားသော point များနှင့် ထည့်သွင်းထားသော ကိုဩဒိနိတ်များကိုပြန်စစ်ဆေးသင့်ပါသည်။ အထက်ပါ image ကို အကိုးအကားအနေဖြင့် အသုံးပြုနိုင်ပါသည်။</p>
+<p>Control point များကို ကျေနပ်မှုရှိပါက ၎င်း point များကို နောက်ပိုင်းတွင်အသုံးပြုနိုင်ရန်အတွက် သိမ်းဆည်းထားနိုင်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">File ► Save GCP points as…</span> သို့သွားပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data\forestry\digitizing</span></code> folder ထဲတွင် ဖိုင်ကို <code class="file docutils literal notranslate"><span class="pre">rautjarvi_map.tif.points</span></code> ဟုအမည်ပေးပါ။</p></li>
+</ol>
+<p>နောက်ဆုံးတွင် မြေပုံကို georeference ပြုလုပ်ပါ-</p>
+<ol class="arabic">
+<li><p><span class="menuselection">File ► Start georeferencing</span> သို့သွားပါ။</p></li>
+<li><p>ဖိုင်ကို <code class="file docutils literal notranslate"><span class="pre">rautjarvi_georef.tif</span></code> ဟု အမည်ပေးထားပြီးသားဖြစ်နေပါမည်။</p>
+<p>ယခုအခါ မြေပုံကို QGIS project ထဲတွင် georeference ပြုလုပ်ပြီးသား raster အနေဖြင့် မြင်တွေ့နိုင်ပြီ ဖြစ်ပါသည်။ Raster သည် အနည်းငယ် လှည့်ထားသည့်ပုံစံဖြစ်နေသည်ကို သတိထားမိပါလိမ့်မည်၊ ထိုသို့ဖြစ်ရသည်မှာ data သည် <code class="docutils literal notranslate"><span class="pre">KKJ</span> <span class="pre">/</span> <span class="pre">Finland</span> <span class="pre">zone</span> <span class="pre">2</span></code> CRS တွင်ရှိပြီး project သည် <code class="docutils literal notranslate"><span class="pre">ETRS89</span> <span class="pre">/</span> <span class="pre">TM35FIN(E,N)</span></code> CRS တွင် ရှိနေသောကြောင့်ဖြစ်သည်။</p>
+</li>
+<li><p>Data ကို မှန်ကန်စွာ georeference ပြုလုပ်ထား/မထားကို စစ်ဆေးရန်-</p>
+<ol class="arabic simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data\forestry</span></code> folder ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">rautjarvi_aerial.tif</span></code> အမည်ဖြင့် ကောင်းကင်ဓာတ်ပုံကိုဖွင့်ပါ။</p></li>
+<li><p>သင့်မြေပုံနှင့် ထိုကောင်းကင်ဓာတ်ပုံသည် ကောင်းမွန်စွာ ကိုက်ညီနေသင့်ပါသည်- မြေပုံ၏ အလင်းဖောက်နှုန်းကို 50% သတ်မှတ်ပေးပြီး ကောင်းကင်ဓာတ်ပုံနှင့်နှိုင်းယှဉ်ကြည့်ပါ။</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../../_images/Clipboard14.png" src="../../../_images/Clipboard14.png" />
+</figure>
+</li>
+<li><p>QGIS project တွင်ပြုလုပ်ထားသောပြောင်းလဲမှုများကို သိမ်းဆည်းပါ၊ နောက်လာမည့် သင်ခန်းစာအတွက် ယခုသိမ်းဆည်းထားသော နေရာမှ ဆက်လက်လုပ်ဆောင်ပါမည်။</p></li>
+</ol>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">14.2.3. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် စာရွက်မြေပုံတစ်ခုကို georeference ပြုလုပ်ပြီးဖြစ်ကာ ၎င်းကို QGIS ထဲတွင် မြေပုံ layer တစ်ခုအဖြစ် အသုံးပြုနိုင်ပြီဖြစ်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">14.2.4. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်သင်ခန်းစာတွင် မြေပုံထဲရှိ forest stand (သစ်တောပင်ထောင်) များကို polygon များအနေဖြင့် digitize ပြုလုပ်မည်ဖြစ်ပြီး ၎င်းတို့ထဲတွင် inventory data များထည့်သွင်းမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="forestry_intro.html" class="btn btn-neutral float-left" title="14.1. သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stands_digitizing.html" class="btn btn-neutral float-right" title="14.3. သင်ခန်းစာ - သစ်တောပင်ထောင်များ Digitize ပြုလုပ်ခြင်း (Lesson: Digitizing Forest Stands)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/forestry/map_georeferencing.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/forestry/map_georeferencing.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/forestry/map_georeferencing.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/forestry/map_georeferencing.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/forestry/map_georeferencing.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/forestry/map_georeferencing.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/forestry/map_georeferencing.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/forestry/map_georeferencing.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/forestry/map_georeferencing.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/forestry/map_georeferencing.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/forestry/map_georeferencing.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/40db3954bfe164c433c17df5ca757eb2" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

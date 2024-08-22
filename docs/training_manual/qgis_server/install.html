@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11.1. သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/qgis_server/install.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="11.2. သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)" href="wms.html" />
+    <link rel="prev" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" href="index.html" />
+  <meta name="description" content="QGIS testing documentation: 11.1. သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">11.1. သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#package-install-follow-along-install-from-packages">11.1.1. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Package များမှ Install ပြုလုပ်ခြင်း (Follow Along: Install from packages)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qgis-server-executable-follow-along-qgis-server-executable">11.1.2. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - QGIS Server Executable (Follow Along: QGIS Server Executable)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#http-server-http-server-configuration">11.1.3. <abbr title="Advanced level">★★★</abbr> HTTP Server ပြင်ဆင်သတ်မှတ်ခြင်း (HTTP Server Configuration)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#virtual-host-follow-along-create-another-virtual-host">11.1.4. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - နောက်ထပ် virtual host ဖန်တီးခြင်း (Follow Along: Create another virtual host)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">11.1.5. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">11.1.6. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wms.html">11.2. သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">11. </span>မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">11.1. </span>သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/qgis_server/install.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wms.html" class="btn btn-neutral float-right" title="11.2. သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="qgis-server-install-lesson-install-qgis-server">
+<span id="label-qgisserver-tutorial"></span><span id="index-0"></span><h1><span class="section-number">11.1. </span>သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server)<a class="headerlink" href="#qgis-server-install-lesson-install-qgis-server" title="Link to this heading"></a></h1>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> Debian Stretch ပေါ်တွင် <strong>QGIS Server</strong> ကို install ပြုလုပ်နည်းကို လေ့လာရန်။ Ubuntu နှင့် ၎င်း၏ ဆင့်ပွားများကဲ့သို့ Debian ကိုအခြေခံသည့်အရာများအတွက်လည်း လိုက်လုပ်နိုင်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ubuntu တွင် admin permission လိုအပ်သော command များရှေ့တွင် <code class="docutils literal notranslate"><span class="pre">sudo</span></code> ကြိုထည့်ပေးပြီး ပုံမှန် user အဖြစ်အသုံးပြုနိုင်ပါသည်။ Debian တွင် <code class="docutils literal notranslate"><span class="pre">sudo</span></code> အသုံးပြုရန်မလိုအပ်ပဲ admin (<code class="docutils literal notranslate"><span class="pre">root</span></code>) အနေဖြင့် လုပ်ဆောင်နိုင်ပါသည်။</p>
+</div>
+<section id="package-install-follow-along-install-from-packages">
+<h2><span class="section-number">11.1.1. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Package များမှ Install ပြုလုပ်ခြင်း (Follow Along: Install from packages)<a class="headerlink" href="#package-install-follow-along-install-from-packages" title="Link to this heading"></a></h2>
+<p>ယခုသင်ခန်းစာတွင် <a class="reference external" href="https://qgis.org/en/site/forusers/alldownloads.html#linux">ဤ</a> တွင် ပြထားသည့်အတိုင်း package များမှ install ပြုလုပ်ခြင်းကိုသာ လုပ်ဆောင်သွားမည်ဖြစ်သည်။</p>
+<p>QGIS Server ကို အောက်ပါအတိုင်း install ပြုလုပ်ပါ-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt<span class="w"> </span>install<span class="w"> </span>qgis-server<span class="w"> </span>--no-install-recommends<span class="w"> </span>--no-install-suggests
+
+<span class="c1"># if you want to install server plugins, also:</span>
+apt<span class="w"> </span>install<span class="w"> </span>python3-qgis
+</pre></div>
+</div>
+<p>QGIS Server ကိုအသုံးပြုရာတွင် QGIS Desktop (တွဲဖက် X Server နှင့်အတူ) ကို install မပြုလုပ်ထားပဲ အသုံးပြုသင့်ပါသည်။</p>
+</section>
+<section id="qgis-server-executable-follow-along-qgis-server-executable">
+<h2><span class="section-number">11.1.2. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - QGIS Server Executable (Follow Along: QGIS Server Executable)<a class="headerlink" href="#qgis-server-executable-follow-along-qgis-server-executable" title="Link to this heading"></a></h2>
+<p>QGIS Server executable သည် <code class="docutils literal notranslate"><span class="pre">qgis_mapserv.fcgi</span></code> ဖြစ်ပါသည်။ ၎င်းကို မည်သည့်နေရာတွင် install ပြုလုပ်ထားသည်ကို စစ်ဆေးရန် <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">/</span> <span class="pre">-name</span> <span class="pre">'qgis_mapserv.fcgi'</span></code> ကို run ကြည့်နိုင်ပြီး output သည် <code class="docutils literal notranslate"><span class="pre">/usr/lib/cgi-bin/qgis_mapserv.fcgi</span></code> ဆိုသည့်ပုံစံမျိုး ဖြစ်သင့်ပါသည်။</p>
+<p>Command line စမ်းသပ်မှုတစ်ခု ပြုလုပ်လိုပါက <code class="docutils literal notranslate"><span class="pre">/usr/lib/cgi-bin/qgis_mapserv.fcgi</span> <span class="pre">--version</span></code> command ကို run နိုင်ပြီး output သည် အောက်ပါပုံစံအတိုင်း ထွက်လာသင့်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QGIS</span> <span class="mf">3.21.0</span><span class="o">-</span><span class="n">Master</span> <span class="s1">&#39;Master&#39;</span> <span class="p">(</span><span class="mi">1</span><span class="n">c70953f1e</span><span class="p">)</span>
+<span class="n">QGIS</span> <span class="n">code</span> <span class="n">revision</span> <span class="mi">1</span><span class="n">c70953f1e</span>
+<span class="n">Qt</span> <span class="n">version</span> <span class="mf">5.15.2</span>
+<span class="n">Python</span> <span class="n">version</span> <span class="mf">3.9.5</span>
+<span class="n">GDAL</span><span class="o">/</span><span class="n">OGR</span> <span class="n">version</span> <span class="mf">3.2.2</span>
+<span class="n">PROJ</span> <span class="n">version</span> <span class="mf">7.2.1</span>
+<span class="n">EPSG</span> <span class="n">Registry</span> <span class="n">database</span> <span class="n">version</span> <span class="n">v10</span><span class="mf">.008</span> <span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">GEOS</span> <span class="n">version</span> <span class="mf">3.9.0</span><span class="o">-</span><span class="n">CAPI</span><span class="o">-</span><span class="mf">1.16.2</span>
+<span class="n">SQLite</span> <span class="n">version</span> <span class="mf">3.34.1</span>
+<span class="n">OS</span> <span class="n">Ubuntu</span> <span class="mf">21.04</span>
+</pre></div>
+</div>
+<p>နောက်ပိုင်းတွင် WMS တောင်းဆိုမှုများ ပြုလုပ်နည်းကို တွေ့ရမည်ဖြစ်သည်။</p>
+</section>
+<section id="http-server-http-server-configuration">
+<h2><span class="section-number">11.1.3. </span><abbr title="Advanced level">★★★</abbr> HTTP Server ပြင်ဆင်သတ်မှတ်ခြင်း (HTTP Server Configuration)<a class="headerlink" href="#http-server-http-server-configuration" title="Link to this heading"></a></h2>
+<p>Install ပြုလုပ်ထားသော QGIS server ကို Internet Browser တစ်ခုမှနေပြီး အသုံးပြုခွင့်ရရှိရန် HTTP server တစ်ခုကိုအသုံးပြုရန် လိုအပ်ပါသည်။ Apache HTTP Server installation လုပ်ငန်းစဉ်ကို <span class="xref std std-ref">httpserver</span> အပိုင်းတွင် အသေးစိတ်ရှင်းပြထားပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>X Server (Linux Desktop ထဲတွင် ပါဝင်သော)တစ်ခုကို မ run ပဲ QGIS Server ကို install ပြုလုပ်ခဲ့ပြီး <code class="docutils literal notranslate"><span class="pre">GetPrint</span></code> command ကိုလည်း အသုံးပြုလိုလျှင် fake (အတုအယောင်) X Server တစ်ခုကို install ပြုလုပ်သင့်ပြီး ၎င်းအား QGIS Server မှအသုံးပြုရန် လုပ်ဆောင်ပေးသင့်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် <span class="xref std std-ref">Xvfb installation process</span> အတိုင်းလိုက်လုပ်ကြည့်နိုင်ပါသည်။</p>
+</div>
+</section>
+<section id="virtual-host-follow-along-create-another-virtual-host">
+<h2><span class="section-number">11.1.4. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - နောက်ထပ် virtual host ဖန်တီးခြင်း (Follow Along: Create another virtual host)<a class="headerlink" href="#virtual-host-follow-along-create-another-virtual-host" title="Link to this heading"></a></h2>
+<p>QGIS Server သို့ဦးတည်သော နောက်ထပ် Apache virtual host ဖန်တီးကြည့်ပါမည်။ နှစ်သက်ရာအမည် (<code class="docutils literal notranslate"><span class="pre">coco.bango</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">super.duper.training</span></code> ၊
+<code class="docutils literal notranslate"><span class="pre">example.com</span></code> ၊ အစရှိသဖြင့်) ရွေးချယ်ပေးနိုင်ပါသည်၊ သို့သော် ရိုးရှင်းစေရန်အတွက် <code class="docutils literal notranslate"><span class="pre">myhost</span></code> ဟူသောအမည်ကို အသုံးပြုပါမည်။</p>
+<ul class="simple">
+<li><p>Localhost IP သို့ဦးတည်ရန် <code class="docutils literal notranslate"><span class="pre">myhost</span></code> အမည်ကို set up လုပ်ကြည့်ပါမည်၊ လုပ်ဆောင်ရာတွင် <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">-c</span> <span class="pre">&quot;echo</span> <span class="pre">'127.0.0.1</span> <span class="pre">myhost'</span> <span class="pre">&gt;&gt;</span> <span class="pre">/etc/hosts&quot;</span></code> command ကိုအသုံးပြု၍ <code class="file docutils literal notranslate"><span class="pre">/etc/hosts</span></code> တွင် <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span> <span class="pre">x</span></code> ထည့်သွင်းပါ သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">gedit</span> <span class="pre">/etc/hosts</span></code> ဖြင့်ဖိုင်ကို edit ပြုလုပ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myhost</span></code> သည် localhost သို့ဦးတည်ခြင်းရှိမရှိကို terminal ထဲတွင် <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">myhost</span></code> command ဖြင့်စစ်ဆေးကြည့်နိုင်ပါသည်၊ output သည်အောက်ပါအတိုင်းဖြစ်ပါလိမ့်မည်-</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qgis@qgis:~$<span class="w"> </span>ping<span class="w"> </span>myhost
+PING<span class="w"> </span>myhost<span class="w"> </span><span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span><span class="w"> </span><span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span><span class="w"> </span>bytes<span class="w"> </span>of<span class="w"> </span>data.
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>localhost<span class="w"> </span><span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">0</span>.024<span class="w"> </span>ms
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>localhost<span class="w"> </span><span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">0</span>.029<span class="w"> </span>ms
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">myhost</span></code> မှ QGIS Server အားရယူသုံးစွဲနိုင်ခြင်းရှိမရှိကို <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://myhost/cgi-bin/qgis_mapserv.fcgi</span></code> ကိုအသုံးပြု၍ဖြစ်စေ Debian box browser မှတဆင့် URL ကို ယူသုံး၍ဖြစ်စေ စမ်းသပ်ကြည့်နိုင်ပါသည်။ အောက်ပါအတိုင်း ပြန်ထုတ်ပေးကောင်း ပေးပါလိမ့်မည်-</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>404 Not Found<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Not Found<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The requested URL /cgi-bin/qgis_mapserv.fcgi was not found on this server.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">address</span><span class="p">&gt;</span>Apache/2.4.25 (Debian) Server at myhost Port 80<span class="p">&lt;/</span><span class="nt">address</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Apache သည် <code class="docutils literal notranslate"><span class="pre">myhost</span></code> server သို့ဦးတည်သော request များကို သူကိုယ်တိုင်ဖြေရှင်းရမည်ကို မသိသေးပါ။ Virtual host ကို အရိုးရှင်းဆုံးနည်းလမ်းဖြင့် set up ပြုလုပ်ရန် <code class="file docutils literal notranslate"><span class="pre">qgis.demo.conf</span></code> နှင့်အကြောင်းအရာတူညီသော <code class="file docutils literal notranslate"><span class="pre">/etc/apache2/sites-available</span></code> ဖိုင်လမ်းကြောင်းထဲတွင် <code class="docutils literal notranslate"><span class="pre">myhost.conf</span></code> ဖိုင်တစ်ခုကို ပြုလုပ်ပေးရမည်ဖြစ်သည်၊ သို့သော် <code class="docutils literal notranslate"><span class="pre">ServerName</span></code> line တွင် <code class="docutils literal notranslate"><span class="pre">ServerName</span> <span class="pre">myhost</span></code> ဟူ၍ ဖြစ်သင့်ပါသည်။ Log (လုပ်ဆောင်မှုမှတ်တမ်း) များ ရှိမည့်နေရာကိုလည်း ပြောင်းလဲပေးနိုင်ပါသည်၊ သို့သော် ၎င်းကို မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a2ensite</span> <span class="pre">myhost.conf</span></code> ဖြင့် virtual host ကို enable လုပ်ပေးပြီး <code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">apache2</span> <span class="pre">reload</span></code> ဖြင့် Apache service အား reload လုပ်ပါ။</p></li>
+<li><p><a class="reference external" href="http://myhost/cgi-bin/qgis_mapserv.fcgi">http://myhost/cgi-bin/qgis_mapserv.fcgi</a> url အား အသုံးပြုနိုင်ပြီ ဖြစ်ပါသည်။</p></li>
+</ul>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">11.1.5. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>QGIS Server ဗားရှင်းအမျိုးမျိုးအား Debian အခြေခံသော Linux distros ပေါ်တွင် package များမှ install ပြုလုပ်နည်း၊ Apache အား QGIS Server ဖြင့်ပြင်ဆင်သတ်မှတ်နည်းကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">11.1.6. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် QGIS Server အား install ပြုလုပ်ပြီးဖြစ်ကာ HTTP protocol မှတဆင့် အသုံးပြုနိုင်ပြီဖြစ်ပါသည်၊ ၎င်းမှ လုပ်ဆောင်ပေးနိုင်သော service အချို့ကို မည်သို့ရယူသုံးစွဲရမည်ကို လေ့လာရန်လိုအပ်ပါသည်။ နောက်လာမည့်သင်ခန်းစာတွင် QGIS Server WMS service များကို မည်သို့ရယူသုံးစွဲရမည်ကို လေ့လာရမည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wms.html" class="btn btn-neutral float-right" title="11.2. သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/qgis_server/install.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/qgis_server/install.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/qgis_server/install.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/qgis_server/install.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/qgis_server/install.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/qgis_server/install.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/qgis_server/install.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/qgis_server/install.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/qgis_server/install.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/qgis_server/install.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/qgis_server/install.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/8b292eabaab952b3bc5ed3ad655a6a39" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/online_resources/wms.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)" href="wfs.html" />
+    <link rel="prev" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" href="index.html" />
+  <meta name="description" content="QGIS testing documentation: 10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wms-layer-follow-along-loading-a-wms-layer">10.1.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - WMS layer တစ်ခုထည့်သွင်းခြင်း (Follow Along: Loading a WMS Layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself">10.1.2. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">10.1.3. <abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">10.1.4. <abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">10.1.5. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#further-reading">10.1.6. နောက်ထပ်ဖတ်ရှုရမည်များ (Further Reading)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">10.1.7. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wfs.html">10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">10. </span>မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">10.1. </span>သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/online_resources/wms.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wfs.html" class="btn btn-neutral float-right" title="10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="web-mapping-services-lesson-web-mapping-services">
+<span id="wms-services"></span><h1><span class="section-number">10.1. </span>သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)<a class="headerlink" href="#web-mapping-services-lesson-web-mapping-services" title="Link to this heading"></a></h1>
+<p>Web Mapping Service (WMS) တစ်ခုသည် remote server တစ်ခုပေါ်တွင်ရှိသော ဝန်ဆောင်မှုတစ်ခုဖြစ်ပါသည်။ ဝက်ဘ်ဆိုဒ် တစ်ခုနှင့်ဆင်တူပြီး server နှင့်အချိတ်အဆက်ရှိနေသမျှ ၎င်းကိုအသုံးပြုနိုင်မည်ဖြစ်သည်။ QGIS ကိုအသုံးပြု၍ သင်၏လက်ရှိ မြေပုံထဲသို့ WMS တစ်ခုကို တိုက်ရိုက်ထည့်သွင်းနိုင်ပါသည်။</p>
+<p>Plugin များသင်ခန်းစာတွင် Google မှ raster image အသစ်တစ်ခုကို ထည့်သွင်းနိုင်သည်ကို သင်မှတ်မိပါလိမ့်မည်။ သို့သော် ၎င်းသည် တစ်ကြိမ်ထဲသာအပြီးဖြစ်ပြီး image ကိုဒေါင်းလုဒ်ပြုလုပ်ပြီးသည်နှင့် ပြောင်းလဲမှုမရှိတော့ပါ။ WMS သည် ၎င်းနှင့်မတူပဲ တိုက်ရိုက်ဝန်ဆောင်မှုတစ်ခုဖြစ်ပြီး မြေပုံပေါ်တွင် မြင်ကွင်းရွှေ့ခြင်း သို့မဟုတ် zoom အချုံ့/အချဲ့ပြုလုပ်ပါက အလိုအလျောက် refresh ဖြစ်သွားပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> WMS တစ်ခုကို အသုံးပြုတတ်စေရန်နှင့် ၎င်း၏ အကန့်အသတ်များကို နားလည်စေရန်။</p>
+<section id="wms-layer-follow-along-loading-a-wms-layer">
+<h2><span class="section-number">10.1.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - WMS layer တစ်ခုထည့်သွင်းခြင်း (Follow Along: Loading a WMS Layer)<a class="headerlink" href="#wms-layer-follow-along-loading-a-wms-layer" title="Link to this heading"></a></h2>
+<p>ဤလေ့ကျင့်ခန်းအတွက် သင်တန်းအစတွင် သင်ဖန်တီးခဲ့သော အခြေခံမြေပုံကိုအသုံးပြုနိုင်သလို မြေပုံအသစ်တစ်ခုစတင်ပြီး ရှိပြီးသား layer များကိုလည်း ထည့်သွင်းနိုင်ပါသည်။ ဤဥပမာတွင် မြေပုံအသစ်တစ်ခုကို အသုံးပြုပြီး မူရင်း <span class="guilabel">places</span> ၊ <span class="guilabel">landuse</span> နှင့် <span class="guilabel">protected_areas</span> layer များကိုထည့်သွင်းကာ သင်္ကေတများချိန်ညှိခဲ့ပါသည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/new_map.png"><img alt="../../../_images/new_map.png" src="../../../_images/new_map.png" style="width: 100%;" /></a>
+</figure>
+<ol class="arabic">
+<li><p>အဆိုပါ layer များကို မြေပုံအသစ်တစ်ခုထဲသို့ ထည့်သွင်းပါ၊ သို့မဟုတ် သင့်မူရင်းမြေပုံကိုအသုံးပြုပြီး အဆိုပါ layer များကိုသာ မြင်နိုင်အောင် ဖွင့်ထားပါ။</p></li>
+<li><p>WMS layer အား စတင်မထည့်သွင်းမီ “on the fly” projection (<span class="menuselection">Project ► Properties… ► CRS</span> tab ၊ <span class="guilabel">No CRS (or unknown/non-Earth projection)</span> ကိုအမှန်ခြစ်ပါ) အား ပိတ်ထားပါ။ ထိုသို့လုပ်ခြင်းသည် layer များကို မှန်ကန်စွာ ထပ်နေစေမည်တော့မဟုတ်ပါ၊ သို့သော် စိတ်ပူရန်မလိုပါ- နောက်ပိုင်းတွင် ပြန်လည်ပြင်ဆင်မည်ဖြစ်ပါသည်။</p></li>
+<li><p>WMS layer များကို ထည့်သွင်းရန် <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပြီး <span class="guilabel">Data Source Manager</span> dialog ကိုဖွင့်ပါ၊ <a class="reference internal" href="../../../_images/mActionAddWmsLayer.png"><img alt="addWmsLayer" src="../../../_images/mActionAddWmsLayer.png" style="width: 1.5em;" /></a>
+<span class="guilabel">WMS/WMTS</span> tab ကိုဖွင့်ပေးပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/datasourcemanager_wms.png" src="../../../_images/datasourcemanager_wms.png" />
+</figure>
+<p>သင်တန်း၏အစတွင် SpatiaLite သို့မဟုတ် GeoPackage database တစ်ခုနှင့်ချိတ်ဆက်နည်းကို သတိရပါ။ <span class="guilabel">landuse</span> ၊ <span class="guilabel">buildings</span> နှင့်
+<span class="guilabel">roads</span> layer များကို database တစ်ခုထဲတွင် သိမ်းဆည်းထားပါသည်။ အဆိုပါ layer များကိုအသုံးပြုရန် database နှင့်ဦးစွာ ချိတ်ဆက်ရန် လိုအပ်ပါသည်။ WMS တစ်ခုကိုအသုံးပြုခြင်းသည်လည်း layer များ remote server တစ်ခုထဲတွင် ရှိနေသည်မှလွဲ၍ ထိုနည်းတူပင်ဖြစ်သည်။</p>
+</li>
+<li><p>WMS တစ်ခုနှင့် ချိတ်ဆက်မှုအသစ်တစ်ခုဖန်တီးရန် <span class="guilabel">New</span> ခလုတ်ကိုနှိပ်ပါ။</p>
+<p>ဆက်လက်လုပ်ဆောင်ရန်အတွက် WMS address တစ်ခုလိုအပ်ပါသည်။ အင်တာနက်တွင် အခမဲ့ WMS server များစွာ ရှိပါသည်။ ၎င်းတို့ထဲမှ တစ်ခုသည် <a class="reference external" href="https://ows.terrestris.de/osm/service">terrestris</a> ဖြစ်ပြီး <a class="reference external" href="https://wiki.openstreetmap.org/wiki/Main_Page">OpenStreetMap</a> dataset များကိုအသုံးပြုထားပါသည်။</p>
+</li>
+<li><p>အဆိုပါ WMS ကိုအသုံးပြုရန် လက်ရှိ dialog ထဲတွင် ၎င်းကို အောက်ပါအတိုင်းသတ်မှတ်ပေးပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_wms_connection.png" src="../../../_images/new_wms_connection.png" />
+</figure>
+<ul class="simple">
+<li><p><span class="guilabel">Name</span> field တွင် <code class="docutils literal notranslate"><span class="pre">terrestris</span></code> ဖြစ်သင့်ပါသည်။</p></li>
+<li><p><span class="guilabel">URL</span> field တွင် <code class="docutils literal notranslate"><span class="pre">https://ows.terrestris.de/osm/service</span></code> ဖြစ်သင့်ပါသည်။</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။ WMS server အသစ် ဝင်လာပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_connection_listed.png" src="../../../_images/new_connection_listed.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Connect</span> ကိုနှိပ်ပါ။ စာရင်းထဲတွင် အောက်ပါ entry အသစ်များထည့်သွင်းပေးသွားမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_wms_entries.png" src="../../../_images/new_wms_entries.png" />
+</figure>
+<p>အဆိုပါ layer များအားလုံးသည် ဤ WMS server တွင်ရှိသော layer များဖြစ်သည်။</p>
+</li>
+<li><p><span class="guilabel">OSM-WMS</span> layer ပေါ်တွင် click တစ်ချက်နှိပ်ပါ။ ထိုအခါ အသုံးပြုထားသော default <span class="guilabel">Coordinate Reference System</span> ကိုပြသလိမ့်မည်ဖြစ်ပြီး dataset မှအသုံးပြုနိုင်သော CRS အရေအတွက်ကို ပြသပေးပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/osm_wms_selected.png" src="../../../_images/osm_wms_selected.png" />
+</figure>
+<p>ကျွန်ုပ်တို့မြေပုံအတွက် <code class="docutils literal notranslate"><span class="pre">EPSG:4326</span> <span class="pre">-</span> <span class="pre">WGS</span> <span class="pre">84</span></code> ကိုအသုံးပြုမည်မဟုတ်သည့်အတွက် အခြားကိုက်ညီမည့် CRS တစ်ခုကို ရှာဖွေကြည့်ပါမည်။</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a><sup>Select CRS</sup> ခလုတ်ကိုနှိပ်ပါ။ Data နှင့်အတူပါလာသော CRS များအားလုံးကို ပြသပေးသည့် <span class="guilabel">Coordinate Reference System Selector</span> dialog တစ်ခုကိုတွေ့ရပါလိမ့်မည်။</p></li>
+<li><p><em>Projected</em> CRS တစ်ခုကို လိုချင်သည့်အတွက် <code class="docutils literal notranslate"><span class="pre">EPSG:3857</span></code> ဖြင့် <span class="guilabel">WGS 84 / Pseudo-Mercator</span> ကိုရွေးချယ်ပါမည်။ အပေါ်ဘက်ရှိ <a class="reference internal" href="../../../_images/search.png"><img alt="search" src="../../../_images/search.png" style="width: 1.5em;" /></a> <span class="guilabel">Filter</span> widget ကိုလည်း အသုံးပြုနိုင်ပါသည်။</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../../_images/pseudo_mercator_selected.png" src="../../../_images/pseudo_mercator_selected.png" />
+</figure>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။ Coordinate Reference System ပြောင်းသွားပါလိမ့်မည်။</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><span class="guilabel">Layer name</span> (Default သည် <span class="guilabel">OpenStreetMap WMS - by terrestris</span> ဖြစ်ပါသည်) ကိုအသုံးပြုပြီး project ထဲသို့ layer ကိုထည့်သွင်းရန် <span class="guilabel">Add</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Data Source Manager</span> dialog ကိုပိတ်ပါ။</p></li>
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် ၎င်း WMS layer ကို အောက်ဆုံးသို့ ဖိဆွဲ၍ရွှေ့ပါ။</p></li>
+<li><p>Layer များကို တစ်ကမ္ဘာလုံးအတိုင်းအတာ မြင်ရနိုင်စေရန် zoom ချုံ့ကြည့်ပါ။ Layer များသည် တည်နေရာမှန်မှန်ကန်ကန် ရှိမနေသည်ကို မြင်ရပါလိမ့်မည် (အာဖရိက၏ အနောက်ဘက် အနား)။ ထိုသို့ဖြစ်ရသည်မှာ “on the fly” projection ကိုပိတ်ထားသောကြောင့်ဖြစ်သည်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/reprojection_off.png"><img alt="../../../_images/reprojection_off.png" src="../../../_images/reprojection_off.png" style="width: 100%;" /></a>
+</figure>
+</li>
+<li><p>Projection ထပ်မံ၍ ပြောင်းကြည့်ပါမည်၊ <span class="guilabel">OpenStreetMap WMS</span> layer ၏ projection ဖြစ်သော <span class="guilabel">WGS 84 / Pseudo Mercator</span> အတိုင်းအတူတူအသုံးပြုပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Project ► Properties… ► CRS</span> tab ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">No CRS (or unknown/non-Earth projection)</span> ကိုအမှန်ခြစ်ဖြုတ်ပါ</p></li>
+<li><p>စာရင်းထဲမှ <span class="guilabel">WGS 84 / Pseudo Mercator</span> ကိုရွေးပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/enable_projection.png" src="../../../_images/enable_projection.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+</li>
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ မိမိ၏ကိုယ်ပိုင် layer တစ်ခုပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Zoom to layer(s)</span> ကိုနှိပ်ပါ။ Swellendam ဧရိယာကို မြင်တွေ့ရမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/wms_result.png"><img alt="../../../_images/wms_result.png" src="../../../_images/wms_result.png" style="width: 100%;" /></a>
+</figure>
+</li>
+</ol>
+<p>WMS layer ၏ လမ်းများနှင့် မိမိ၏ကိုယ်ပိုင် လမ်း layer သည် ထပ်သွားသည်ကို တွေ့ရပါမည်။</p>
+<section id="wms-the-nature-and-limitations-of-wms">
+<h3>WMS ၏သဘောသဘာဝနှင့် အကန့်အသတ်များ (The nature and limitations of WMS)<a class="headerlink" href="#wms-the-nature-and-limitations-of-wms" title="Link to this heading"></a></h3>
+<p>ဤ WMS layer ထဲတွင် feature များစွာ ပါရှိသည်ကို သတိပြုမိပါလိမ့်မည်။ လမ်းများ၊ မြစ်များ၊ သဘာဝကာကွယ်တောများ၊ အစရှိသဖြင့် ပါရှိနေပါသည်။ ၎င်းသည် vector များဖြင့် ဖွဲ့စည်းထားသော်လည်း raster တစ်ခုဖြစ်ပုံရပါသည်၊ သို့သော် ၎င်း၏ သင်္ကေတများကို မပြောင်းလဲနိုင်ပါ။ ဘာကြောင့်ပါလဲ။</p>
+<p>ဤအရာသည် WMS တစ်ခု၏ အလုပ်လုပ်ပုံဖြစ်ပါသည်- ၎င်းသည် image တစ်ခုအနေဖြင့်သာ ရရှိသော မြေပုံတစ်ခုဖြစ်ပြီး စာရွက်ပေါ်ရှိ ပုံမှန်မြေပုံတစ်ခုနှင့်ဆင်တူပါသည်။ သင့်တွင် vector layer များရှိသောအခါ QGIS သည် မြေပုံတစ်ခုအဖြစ် ပုံဖော်ပြသပေးပါသည်၊ သို့သော် WMS အသုံးပြုခြင်းတွင် အဆိုပါ vector layer များသည် WMS server ပေါ်တွင် ရှိပြီး ၎င်းတို့ကို မြေပုံတစ်ခုအဖြစ်ပုံဖော်ပြသပြီး ထိုမြေပုံကို သင့်ဆီသို့ image တစ်ခုအနေဖြင့် ပြန်ပို့ပေးခြင်းဖြစ်သည်။ QGIS သည် ထို image ကိုပြသပေးနိုင်သော်လည်း ၎င်း၏ သင်္ကေတများကိုမပြောင်းလဲနိုင်ပါ၊ ထိုသို့ဖြစ်ရခြင်းမှာ အားလုံးကို server ပေါ်တွင် ကိုင်တွယ်လုပ်ဆောင်သောကြောင့်ဖြစ်သည်။</p>
+<p>သင်္ကေတနှင့်ပတ်သက်ပြီး စိတ်ပူရန်မလိုအပ်သည့်အတွက် အကျိုးများစွာတော့ရှိပါသည်။ ထိုအတွက် လုပ်ဆောင်ထားပြီးဖြစ်ကာ ကောင်းမွန်စွာဒီဇိုင်းလုပ်ထားသော WMS တစ်ခုခုကို ရှာဖွေကြည့်လျှင်ပိုကောင်းမည်ဖြစ်သည်။</p>
+<p>တစ်နည်းအားဖြင့်ဆိုရလျှင် သင့်အနေဖြင့် သင်္ကေတကို မနှစ်သက်လျှင် ပြောင်းလဲ၍မရနိုင်ပါ၊ WMS server ပေါ်တွင် ပြောင်းလဲမှုပြုလုပ်ပါက သင့်မြေပုံတွင်လည်း ပြောင်းလဲသွားမည်ဖြစ်ပါသည်။ ထိုအတွက်ကြောင့် တစ်ခါတရံတွင် WMS အစား  Web Feature Service (WFS) ကိုအသုံးပြုလိုခြင်းဖြစ်သည်၊ WFS သည် WMS-style မြေပုံ၏အစိတ်အပိုင်းအဖြစ်မဟုတ်ပဲ vector layer များကို သီးခြားပေးထားပါသည်။</p>
+<p>ထိုအကြောင်းကို နောက်သင်ခန်းစာတွင် လေ့လာရမည်ဖြစ်သည်။ ဦးစွာ နောက်ထပ် WMS layer ကိုထည့်သွင်းကြည့်ပါမည်။</p>
+</section>
+</section>
+<section id="try-yourself">
+<h2><span class="section-number">10.1.2. </span><abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)<a class="headerlink" href="#try-yourself" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">https://maps.eatlas.org.au/maps/wms</span></code> URL မှ <code class="docutils literal notranslate"><span class="pre">eAtlas</span></code> WMS server ကိုထည့်သွင်းပါ။</p></li>
+<li><p><span class="guilabel">World: Hillshading</span> layer ကိုမြေပုံထဲသို့ ထည့်သွင်းပါ။</p></li>
+<li><p>မြန်ဆန်စေရန်အတွက် <span class="guilabel">Encoding</span> တွင် <span class="guilabel">JPEG</span> ဟုသတ်မှတ်ပြီး <span class="guilabel">Tile size</span> တွင် <code class="docutils literal notranslate"><span class="pre">200</span></code> by <code class="docutils literal notranslate"><span class="pre">200</span></code> ထားပါ၊</p></li>
+<li><p>သင့်မြေပုံသည် အောက်ပါပုံစံအတိုင်းဖြစ်သင့်ပါသည် (layer များကို order ပြန်စီပြီး အလင်းဖောက်နှုန်းအချို့ သုံးပေးရန် လိုအပ်နိုင်ပါသည်)-</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/world_hillshading_result.png"><img alt="../../../_images/world_hillshading_result.png" src="../../../_images/world_hillshading_result.png" style="width: 100%;" /></a>
+</figure>
+</div></blockquote>
+</li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<ol class="arabic">
+<li><p>Data Source Manager ထဲရှိ WMS / WMTS tab ထဲတွင် ချိတ်ဆက်မှုအသစ်တစ်ခုဖန်တီးပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/search.png"><img alt="search" src="../../../_images/search.png" style="width: 1.5em;" /></a> စာသား box ကိုအသုံးပြုပြီး layer များစာရင်းကို filter လုပ်ကာ သက်ဆိုင်ရာ layer ကိုရွေးချယ်ပါ</p></li>
+<li><p>၎င်း၏ CRS ကို မြေပုံ၏အခြား layer များအတိုင်း <span class="guilabel">EPSG:3857 - WGS 84 / Pseudo Mercator</span> အဖြစ်ပြောင်းလဲရန် မမေ့ပါနှင့်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/add_world_hillshading_layer.png"><img alt="../../../_images/add_world_hillshading_layer.png" src="../../../_images/add_world_hillshading_layer.png" style="width: 100%;" /></a>
+</figure>
+</li>
+<li><p>Layer ကိုထည့်သွင်းပြီးနောက် ၎င်း၏ <span class="guilabel">Opacity</span> တန်ဖိုးကို ပြင်ဆင်နိုင်ပါသည် (<span class="guilabel">Transparency</span> properties tab အောက်တွင်)</p></li>
+</ol>
+</div>
+</section>
+<section id="id1">
+<h2><span class="section-number">10.1.3. </span><abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>WMS အသုံးပြုရခြင်း၏ အခက်အခဲတစ်စိတ်တစ်ပိုင်းသည် ကောင်းမွန်သော (အခမဲ့ဖြစ်သော) server တစ်ခုရှာဖွေရခြင်းဖြစ်သည်။</p>
+<ul>
+<li><p><a class="reference external" href="https://directory.spatineo.com/">directory.spatineo.com</a> (သို့မဟုတ် အွန်လိုင်းတစ်နေရာရာမှ) မှ WMS အသစ်တစ်ခုကို ရှာပါ။ အခကြေးငွေပေးရခြင်း သို့မဟုတ် တားမြစ်ချက်များ မရှိစေရပါ၊ Swellendam ဧရိယာကို လွှမ်းခြုံရမည်ဖြစ်သည်။</p>
+<p>မှတ်ထားရမည်မှာ WMS တစ်ခုကိုအသုံးပြုရန် ၎င်း၏ URL သာလိုအပ်ပါသည် (လိုအပ်လျှင် ဖော်ပြချက်အချို့ ထည့်ပေးနိုင်ပါသည်)။</p>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>Spatineo သည် OGC data ရှာဖွေပေးနိုင်သော နေရာများထဲမှ တစ်ခုဖြစ်ပါသည်။ ရလာဒ်များရမရ ကြည့်ရှုရန် စာသားဧရိယာထဲတွင် အမည်၊ Keyword၊ စိတ်ဝင်စားသည့်တည်နေရာ ရိုက်ထည့်ကြည့်ပါ။ ဤသင်ခန်းစာအတွက် WMS သာပါဝင်သော ရလာဒ်များကိုသာ filter လုပ်လိုပါသည်။</p>
+<p>WMS server များစွာသည် အမြဲတမ်းအသုံးမပြုနိုင်သည်ကို သတိထားမိပါလိမ့်မည်။ တစ်ခါတရံတွင် ယာယီသာဖြစ်ပြီး တစ်ခါတရံတွင် အမြဲတမ်းဖြစ်ပါသည်။ မှတ်တမ်းရေးသားနေချိန်တွင် အလုပ်လုပ်နေသော WMS server ဥပမာတစ်ခုပြောရလျှင် <span class="guilabel">MapServer Demonstration Server</span> WMS ဖြစ်ပြီး <a class="reference external" href="https://demo.mapserver.org/cgi-bin/wms?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities">https://demo.mapserver.org/cgi-bin/wms?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</a> URL တွင်ရှိပါသည်။ ၎င်းသည် အခကြေးငွေပေးရန်မလိုအပ်သလို သုံးစွဲခွင့်ကန့်သတ်ချက်များလည်း မရှိပါ၊ တစ်ကမ္ဘာလုံးအတွက် အသုံးပြုနိုင်ပါသည်။ ထို့ကြောင့် ၎င်းသည် လိုအပ်ချက်များနှင့်ကိုက်ညီပြီး သုံးစွဲရ အဆင်ပြေပါသည်။ စိတ်ထဲမှတ်သားထားရမည်မှာ ၎င်း WMS သည် ဥပမာတစ်ခုသာဖြစ်ပြီး အခြားရွေးချယ်နိုင်သည့် WMS server များစွာရှိပါသေးသည်။</p>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">10.1.4. </span><abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><span class="guilabel">MapServer Demonstration Server</span> မှ <span class="guilabel">bluemarble</span> layer ကိုထည့်သွင်းပါ။ ၎င်းသည် ကျွန်ုပ်တို့ study area အတွက် သင့်လျော်သော dataset တစ်ခုဖြစ်ပါသလား?</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<ol class="arabic">
+<li><p>ပုံဖော်ပြသရန်မလိုအပ်သော အခြား WMS layer များအားလုံးကို ဖျောက်ထားပါ။</p></li>
+<li><p>အထက်တွင်ပြသထားသည့်နည်းအတိုင်း server အသစ်ကိုထည့်သွင်းပြီး ထို server ၌ရှိသော သင့်လျော်သော layer ကိုထည့်သွင်းပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/add_bluemarble_layer.png" src="../../../_images/add_bluemarble_layer.png" />
+</figure>
+</li>
+<li><p>Swellendam ဧရိယာသို့ zomm ချဲ့ကြည့်လျှင် ဤ dataset သည် resolution နိမ့်နေသည်ကို သင်သတိထားမိပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/low_resolution_dataset.png" src="../../../_images/low_resolution_dataset.png" />
+</figure>
+<p>ထို့ကြောင့် ဤ data ကို လက်ရှိမြေပုံအတွက် အသုံးမပြုလျှင်ပိုကောင်းပါသည်။ Blue Marble data သည် ကမ္ဘာအဆင့် စကေးများနှင့် နိုင်ငံအဆင့် စကေးများတွင်သာ ပိုမိုသင့်တော်ပါသည်။</p>
+</li>
+</ol>
+</div>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">10.1.5. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>WMS တစ်ခုကိုအသုံးပြုခြင်းဖြင့် သင့် လက်ရှိမြေပုံ data အတွက် နောက်ခံအနေဖြင့် ပြောင်းလဲမှုမရှိသောမြေပုံများ ထည့်သွင်းနိုင်မည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">10.1.6. </span>နောက်ထပ်ဖတ်ရှုရမည်များ (Further Reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://directory.spatineo.com/">Spatineo Directory</a></p></li>
+<li><p><a class="reference external" href="https://wiki.openstreetmap.org/wiki/WMS">OpenStreetMap.org list of WMS servers</a></p></li>
+</ul>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">10.1.7. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် နောက်ခံအနေဖြင့် ပြောင်းလဲမှုမရှိသောမြေပုံတစ်ခုထည့်သွင်းပြီးဖြစ်ပါသည်၊ feature များကိုလည်း ထည့်သွင်းနိုင်ပါသေးသည် (အခြား vector layer များထည့်သွင်းသကဲ့သို့)။ Web Feature Service (WFS) တစ်ခုအသုံးပြုပြီး Remote server များမှ feature များထည့်သွင်းနိုင်ပါသည်။ ထိုအကြောင်းကို နောက်လာမည့် သင်ခန်းစာတွင် သင်ကြားပေးမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wfs.html" class="btn btn-neutral float-right" title="10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/online_resources/wms.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/online_resources/wms.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/online_resources/wms.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/online_resources/wms.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/online_resources/wms.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/online_resources/wms.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/online_resources/wms.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/online_resources/wms.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/online_resources/wms.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/online_resources/wms.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/online_resources/wms.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/c8c6e0ca84adeffc7509d5c21a993cb5" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

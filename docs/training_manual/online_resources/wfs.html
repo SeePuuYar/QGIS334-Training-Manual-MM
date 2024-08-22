@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/online_resources/wfs.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" href="../qgis_server/index.html" />
+    <link rel="prev" title="10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)" href="wms.html" />
+  <meta name="description" content="QGIS testing documentation: 10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wms.html">10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wfs-layer-follow-along-loading-a-wfs-layer">10.2.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - WFS Layer တစ်ခုထည့်သွင်းခြင်း (Follow Along: Loading a WFS Layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wfs-layer-query-follow-along-querying-a-wfs-layer">10.2.2. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - WFS Layer တစ်ခုအား Query လုပ်ခြင်း (Follow Along: Querying a WFS Layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">10.2.3. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">10.2.4. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">10. </span>မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">10.2. </span>သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/online_resources/wfs.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="wms.html" class="btn btn-neutral float-left" title="10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../qgis_server/index.html" class="btn btn-neutral float-right" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="web-feature-services-lesson-web-feature-services">
+<h1><span class="section-number">10.2. </span>သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)<a class="headerlink" href="#web-feature-services-lesson-web-feature-services" title="Link to this heading"></a></h1>
+<p>Web Feature Service (WFS) တစ်ခုသည် QGIS ထဲတွင် တိုက်ရိုက်ထည့်သွင်းအသုံးပြုနိုင်သော format များဖြင့် GIS data များပံ့ပိုးပေးပါသည်။ WMS နှင့်မတူသည်မှာ WMS သည် ပြင်ဆင်၍မရသောမြေပုံတစ်ခုကိုသာ ပံ့ပိုးပေးပြီး WFS သည် feature များကို သုံးစွဲခွင့်ပေးခြင်းဖြစ်သည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> WFS တစ်ခုကိုအသုံးပြုတတ်စေရန်နှင့် WMS နှင့် WFS ကွာခြားပုံကို နားလည်စေရန်။</p>
+<section id="wfs-layer-follow-along-loading-a-wfs-layer">
+<h2><span class="section-number">10.2.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - WFS Layer တစ်ခုထည့်သွင်းခြင်း (Follow Along: Loading a WFS Layer)<a class="headerlink" href="#wfs-layer-follow-along-loading-a-wfs-layer" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>မြေပုံအသစ်တစ်ခုစတင်ပါ။ နမူနာပြသခြင်းအတွက်ဖြစ်ပြီး ၎င်းကိုသိမ်းဆည်းမည်မဟုတ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconWfs.png"><img alt="wfs" src="../../../_images/mIconWfs.png" style="width: 1.5em;" /></a> <span class="guilabel">WFS / OGC API - Features</span> tab ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">New</span> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် <span class="guilabel">Name</span> နေရာ၌ <code class="docutils literal notranslate"><span class="pre">nsidc.org</span></code> ဟုထည့်ပြီး <span class="guilabel">URL</span> တွင် <code class="docutils literal notranslate"><span class="pre">https://nsidc.org/cgi-bin/atlas_south?version=1.1.0</span></code> ဟုထည့်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/new_wfs_connection.png" src="../../../_images/new_wfs_connection.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ၊ <span class="guilabel">Server connections</span> ထဲတွင် ချိတ်ဆက်မှုအသစ်ပေါ်လာပါလိမ့်မည်။</p></li>
+<li><p><span class="guilabel">Connect</span> ကိုနှိပ်ပါ။ ရရှိနိုင်သော layer များစာရင်း ပေါ်လာပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/wfs_connection_layers.png" src="../../../_images/wfs_connection_layers.png" />
+</figure>
+</li>
+<li><p>Layer များစာရင်းအောက်ရှိ <span class="guilabel">Only request features overlapping the view extent</span> ကိုအမှန်ခြစ်ဖြုတ်ပါ၊ အကြောင်းမှာ သင့်လက်ရှိမြေပုံ canvas သည် စိတ်ဝင်စားသည့်ဧရိယာ Antarctica ကို မလွှမ်းခြုံနိုင်သောကြောင့်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">antarctica_country_border</span> layer ကိုရှာပါ။ အပေါ်ဘက်ရှိ <span class="guilabel">Filter</span> box ကိုအသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Layer ပေါ်တွင် click နှိပ်ပြီး select လုပ်ပါ-</p></li>
+<li><p><span class="guilabel">south_poles_wfs</span> layer ကိုလည်း ရှာဖွေပြီး select လုပ်ပါ။ <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ကိုဖိထားရန် လိုအပ်ပါမည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/south_poles_wfs.png" src="../../../_images/south_poles_wfs.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Add</span> ကိုနှိပ်ပါ။</p>
+<p>Layer များကိုထည့်သွင်းရန် အချိန်အနည်းငယ်ကြာမြင့်နိုင်ပါသည်။ ထည့်သွင်းပြီးသည်နှင့် မြေပုံထဲတွင် layer များပေါ်လာမည်ဖြစ်ပြီး Antarctica ၏အနားသတ်မျဉ်းများနှင့် ၎င်းအပေါ်ရှိ point အနည်းငယ်ကိုမြင်ရမည်ဖြစ်သည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/antarctica_border.png" src="../../../_images/antarctica_border.png" />
+</figure>
+<p>WMS layer တစ်ခုနှင့် မည်သို့ခြားနားပါသလဲ။</p>
+</li>
+<li><p>Layer တစ်ခုခုပေါ်တွင် select လုပ်ကြည့်ပါ၊ feature selection နှင့် attribute table tool များပွင့်လာသည်ကို တွေ့ရပါလိမ့်မည်။ ၎င်းတို့သည် vector layer များဖြစ်ကြပါသည်။</p></li>
+<li><p><span class="guilabel">south_poles_wfs</span> layer ၏ attribute table ကိုဖွင့်ကြည့်ပါ။ အောက်ပါအတိုင်းတွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/poles_attribute_table.png" src="../../../_images/poles_attribute_table.png" />
+</figure>
+<p>Point များတွင် attribute များရှိသောကြောင့် ၎င်းတို့ကို label တပ်နိုင်မည်ဖြစ်သလို သင်္ကေတများလည်း ပြောင်းလဲပေးနိုင်ပါသည်။ ဥပမာ-</p>
+<figure class="align-center">
+<img alt="../../../_images/labelling_example.png" src="../../../_images/labelling_example.png" />
+</figure>
+</li>
+</ol>
+<section id="wms-layer-differences-from-wms-layers">
+<h3>WMS layer များနှင့် ကွာခြားချက် (Differences from WMS layers)<a class="headerlink" href="#wms-layer-differences-from-wms-layers" title="Link to this heading"></a></h3>
+<p>Web Feature Service  သည် layer ကိုပြန်ထုတ်ပေးပါသည်၊ layer ဖြင့်ပုံဖော်ထားသောမြေပုံတစ်ခုကို ထုတ်ပေးခြင်းမဟုတ်ပါ။ Data ကိုတိုက်ရိုက်သုံးစွဲခွင့်ပေးထားပြီး သင်္ကေတ ပြောင်းလဲခြင်းနှင့် ၎င်း data ဖြင့် analysis များလုပ်ဆောင်နိုင်ပါသည်။ သို့သော် data များပြားစွာ ပို့ဆောင်ပေးရခြင်းဖြစ်စေပါသည်။ အထူးသဖြင့် ထည့်သွင်းနေသော layer များတွင် ရှုပ်ထွေးသော ပုံသဏ္ဍာန်များရှိခြင်း၊ attribute အများအပြားရှိခြင်း၊ သို့မဟုတ် feature များစွာရှိခြင်းနှင့် layer အများအပြားထည့်သွင်းလျှင် သိသာပါသည်။ ထိုအတွက်ကြောင့် WFS layer များကို ထည့်သွင်းရာတွင် အချိန်အလွန်ကြာမြင့်နိုင်ပါသည်။</p>
+</section>
+</section>
+<section id="wfs-layer-query-follow-along-querying-a-wfs-layer">
+<h2><span class="section-number">10.2.2. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - WFS Layer တစ်ခုအား Query လုပ်ခြင်း (Follow Along: Querying a WFS Layer)<a class="headerlink" href="#wfs-layer-query-follow-along-querying-a-wfs-layer" title="Link to this heading"></a></h2>
+<p>WFS layer တစ်ခုကို ထည့်သွင်းပြီးနောက်ပိုင်းမှ query ပြုလုပ်နိုင်သော်လည်း မထည့်သွင်းမီ query ပြုလုပ်ခြင်းက ပိုမို၍အကျိုးရှိပါသည်။ ထိုနည်းဖြင့် အလိုရှိသော feature များကိုသာ တောင်းဆိုနိုင်မည်ဖြစ်သည်။</p>
+<p>ဥပမာ- လက်ရှိအသုံးပြုနေသော WFS server ပေါ်တွင် <span class="guilabel">countries (excluding Antarctica)</span> layer တစ်ခုရှိပါသည်။ South Africa သည် ထည့်သွင်းထားပြီးသော <span class="guilabel">south_poles_wfs</span> layer (နှင့် <span class="guilabel">antarctica_country_border</span> layer) နှင့် မည်သည့်နေရာတွင် ဆက်စပ်နေသည်ကို သိလိုသည် ဆိုကြပါစို့။</p>
+<p>လုပ်ဆောင်ရန် နည်းလမ်း ၂ မျိုးရှိပါသည်။ တစ်နည်းမှာ <span class="guilabel">countries …</span> layer တစ်ခုလုံးကို ထည့်သွင်းပြီး query တစ်ခု တည်ဆောက်ခြင်းဖြစ်သည်။ သို့သော် ကမ္ဘာပေါ်ရှိနိုင်ငံအားလုံးအတွက် data များကူးပြောင်းရယူပြီးမှ South Africa အတွက် data ကိုသာ အသုံးပြုခြင်းသည် bandwidth များကိုဖြုန်းတီးသလိုဖြစ်ပါသည်။ အင်တာနက် connection ပေါ်မူတည်၍ dataset ထည့်သွင်းရန် အချိန်ကြာမြင့်နိုင်ပါသည်။</p>
+<p>နောက်တစ်နည်းမှာ layer ကိုမထည့်သွင်းမီ query ပြုလုပ်ခြင်းဖြစ်သည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Data Source Manager</span> dialog ထဲရှိ <span class="guilabel">WFS / OGC API Features</span> tab ကိုဖွင့်ပါ။</p></li>
+<li><p>ယခင်ကအသုံးပြုခဲ့သော server ကို ချိတ်ဆက်ပြီး ရရှိနိုင်သော layer များစာရင်းကိုကြည့်ပါ။</p></li>
+<li><p><span class="guilabel">countries (excluding Antarctica)</span> layer ကိုရှာပြီး click နှစ်ချက်နှိပ်ပါ။ Layer အမည်သည် <code class="docutils literal notranslate"><span class="pre">country_borders_excluding_antarctica</span></code> ဖြစ်ပါသည်။ Layer ကို select ပြုလုပ်ပြီး dialog အောက်ခြေရှိ <span class="guilabel">Build query</span> ခလုတ်ကိုလည်း နှိပ်နိုင်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/select_country_filter.png" src="../../../_images/select_country_filter.png" />
+</figure>
+</li>
+<li><p>ပေါ်လာသော dialog ထဲရှိ <span class="guilabel">SQL Statement</span> box ထဲတွင် <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">country_borders_excluding_antarctica</span> <span class="pre">WHERE</span> <span class="pre">&quot;Countryeng&quot;</span> <span class="pre">=</span> <span class="pre">'South</span> <span class="pre">Africa'</span></code> ဆိုသည့် query ကိုရိုက်ထည့်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/country_sa_builder.png" src="../../../_images/country_sa_builder.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>အသုံးပြုသော expression သည် target layer ၏ <span class="guilabel">Sql</span> တန်ဖိုးအနေဖြင့် ပေါ်လာပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/country_filter_enabled.png" src="../../../_images/country_filter_enabled.png" />
+</figure>
+</li>
+<li><p>အထက်တွင် select လုပ်ထားသော layer ကို <span class="guilabel">Add</span> လုပ်ပါ။ အဆိုပါ layer မှ <code class="docutils literal notranslate"><span class="pre">Countryeng</span></code> ၏တန်ဖိုးသည် <code class="docutils literal notranslate"><span class="pre">South</span> <span class="pre">Africa</span></code> ဖြစ်သော နိုင်ငံကိုသာ ထည့်သွင်းပေးမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/antarctica_sa.png" src="../../../_images/antarctica_sa.png" />
+</figure>
+<p><code class="docutils literal notranslate"><span class="pre">country_borders_excluding_antarctica</span></code> layer ဘေးရှိ <a class="reference internal" href="../../../_images/mIndicatorFilter.png"><img alt="indicatorFilter" src="../../../_images/mIndicatorFilter.png" style="width: 1.5em;" /></a> icon ကိုသတိထားမိပါသလား။ ထို icon သည် ထည့်သွင်းထားသော layer ကို filter ပြုလုပ်ထားသည်ဟု ညွှန်ပြခြင်းဖြစ်ပြီး ၎င်း layer ထဲရှိ feature များအားလုံးကို project ထဲတွင် ပြသမည်မဟုတ်ပါ။</p>
+</li>
+<li><p>နည်းလမ်း ၂ မျိုးစလုံးကိုစမ်းကြည့်လျှင် ယခုနည်းသည် filter မလုပ်ခင် နိုင်ငံများအားလုံးကို ထည့်သွင်းခြင်းနည်းလမ်း ထက် ပိုမြန်သည်ကို သတိထားမိလိမ့်မည်။</p></li>
+</ol>
+<section id="wfs-notes-on-wfs-availability">
+<h3>WFS ရရှိနိုင်မှု (Notes on WFS availability)<a class="headerlink" href="#wfs-notes-on-wfs-availability" title="Link to this heading"></a></h3>
+<p>သင်လိုအပ်သည့် feature များသည် အလွန်သီးခြားဖြစ်နေလျှင် အဆိုပါ feature များကိုပံ့ပိုးပေးသော WFS တစ်ခုကို ရှာဖွေရန် ခက်ခဲပါသည်။ Web Feature Service များ အတော်လေးရှားပါးရခြင်းမှာ feature တစ်ခုလုံးကို ကူးပြောင်းရာတွင် data ပမာဏကြီးမားသောကြောင့်ဖြစ်သည်။ ထို့ကြောင့် image များကိုသာပေးပို့သော WMS တစ်ခုထက်စာလျှင် WFS တစ်ခုကို host လုပ်ရခြင်းသည် ကုန်ကျစရိတ်များပြားပါသည်။</p>
+<p>ထို့ကြောင့် သင်တွေ့ရမည် အသုံးအများဆုံး WFS အမျိုးအစားသည် အင်တာနက်ပေါ်တွင်ရှိသည်ထက် local network တစ်ခု သို့မဟုတ် မိမိကွန်ပျူတာပေါ်တွင် ရှိခြင်းမျိုး ဖြစ်နိုင်ပါသည်။</p>
+</section>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">10.2.3. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>Layer များ၏ attribute များနှင့် ဂျီဩမေတြီများကို တိုက်ရိုက်သုံးစွဲရန်လိုအပ်လျှင် WFS layer များသည် WMS layer များထက် ပိုမိုကောင်းမွန်ပါသည်။ သို့သော် ဒေါင်းလုဒ်ပြုလုပ်ရမည့် data ပမာဏကို ထည့်သွင်းစဉ်းစားပါက (အင်တာနက်အမြန်နှုန်းပြဿနာနှင့် အလွယ်တကူရရှိနိုင်သော WFS server များရှားပါးခြင်း ကိုပါထည့်သွင်းစဉ်းစားပါက) WMS တစ်ခုအစား WFS ကိုအမြဲတမ်းအသုံးပြုနိုင်မည်တော့မဟုတ်ပါ။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">10.2.4. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်သင်ခန်းစာတွင် OGC service များကိုရရှိရန် QGIS Server ကို မည်သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="wms.html" class="btn btn-neutral float-left" title="10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../qgis_server/index.html" class="btn btn-neutral float-right" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/online_resources/wfs.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/online_resources/wfs.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/online_resources/wfs.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/online_resources/wfs.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/online_resources/wfs.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/online_resources/wfs.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/online_resources/wfs.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/online_resources/wfs.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/online_resources/wfs.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/online_resources/wfs.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/online_resources/wfs.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/8203f378b985064fe3b3dd37114f182f" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
