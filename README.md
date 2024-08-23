@@ -14,7 +14,7 @@
  
 ဤ လက်စွဲကို webpage အဖြစ် အောက်ပါနေရာများ တွင် ထုတ်လွှင့်ထားပါသည် ..
  - [https://www.seepuuyar.com/qgis334_training_manual_mm/docs/](https://www.seepuuyar.com/qgis334_training_manual_mm/docs/) နှင့်
- - [https://seepuuyar.github.io/qgis334_training_manual_mm/docs/](https://seepuuyar.github.io/qgis334-training-manual-mm/docs/) တွင်ဖတ်ရှုနိုင်ပါသည်
+ - [https://seepuuyar.github.io/qgis334-training-manual-mm/docs/](https://seepuuyar.github.io/qgis334-training-manual-mm/docs/) တွင်ဖတ်ရှုနိုင်ပါသည်
 
 
  ![qgis manual](/_images/zz_qgis_training_manual.png)
