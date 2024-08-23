@@ -1,11 +1,5 @@
 ![qgis logo](https://github.com/qgis/QGIS/blob/master/images/README-md/main_logo.png)
 
-# [QGIS 3.34 - သင်တန်းလက်စွဲ](https://seepuuyar.github.io/QGIS334-Training-Manual-MM/docs/training_manual/index.html)
-
-# [GIS မိတ်ဆက်](https://seepuuyar.github.io/QGIS334-Training-Manual-MM/docs/gentle_gis_introduction/index.html)
-
-![qgis logo](https://github.com/qgis/QGIS/blob/master/images/README-md/main_logo.png)
-
 # [QGIS3.34 - သင်တန်း လက်စွဲ](https://seepuuyar.github.io/QGIS334-Training-Manual-MM/docs/)
 ရက်စွဲ - ၁၅ ဩဂုတ် ၂၀၂၄
 
