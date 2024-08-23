@@ -17,4 +17,4 @@
  - [https://seepuuyar.github.io/qgis334_training_manual_mm/docs/](https://seepuuyar.github.io/qgis334_training_manual_mm/docs/) တွင်ဖတ်ရှုနိုင်ပါသည်
 
 
- ![qgis manual](/_images/zz_qgis_manual.png)
+ ![qgis manual](/_images/zz_qgis_training_manual.png)
