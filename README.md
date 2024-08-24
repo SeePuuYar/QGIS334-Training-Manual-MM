@@ -10,6 +10,6 @@
  - [https://www.seepuuyar.com/qgis334_training_manual_mm/docs/](https://www.seepuuyar.com/qgis334_training_manual_mm/docs/) နှင့်
  - [https://seepuuyar.github.io/qgis334-training-manual-mm/docs/](https://seepuuyar.github.io/QGIS334-Training-Manual-MM/docs/) တွင်ဖတ်ရှုနိုင်ပါသည်
 
-Desktop တွင် **offline version** အဖြစ်သုံးလိုပါက ယခုစာမျက်နာအပေါ်ဖက်ရှိ '< > Code' dropdown အောက်တွင် zip ဖြင့်ရယူနိုင်ပါသည်။မိမိစက်ထဲတွင် zip ဖြည်ပြီးနောက် docs folder အောက်ရှိ intex.html ကိုနှိပ်ပြီးစတင်ဖတ်ရှုနိုင်ပါသည်။
+Desktop တွင် **offline version** အဖြစ်သုံးလိုပါက ယခုစာမျက်နာအပေါ်ဖက်ရှိ '< > Code' dropdown အောက်တွင် zip ဖြင့်ရယူနိုင်ပါသည်။မိမိစက်ထဲတွင် zip ဖြည်ပြီးနောက် docs folder အောက်ရှိ index.html ကိုနှိပ်ပြီးစတင်ဖတ်ရှုနိုင်ပါသည်။
 
  ![qgis manual](/_images/zz_qgis_training_manual.png)
